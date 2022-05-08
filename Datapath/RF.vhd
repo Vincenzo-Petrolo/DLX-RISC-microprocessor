@@ -26,7 +26,7 @@ architecture beh of RF is
 
 begin
 
-    RW : process (WE, ADDR_RD1, ADDR_RD2, ADDR_WR, DATA_IN)
+    RW : process (RST, WE, ADDR_RD1, ADDR_RD2, ADDR_WR, DATA_IN, REGS)
     begin
         if (RST = '0') then
             DATA_OUT1 <= REGS(to_integer(unsigned(ADDR_RD1)));
