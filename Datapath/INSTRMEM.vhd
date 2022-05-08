@@ -12,7 +12,7 @@ end INSTRMEM;
 architecture beh of INSTRMEM is
 	 
 	 subtype WordT is std_logic_vector(31 downto 0);
-	 type StorageT is array(0 to (2**32)-1) of WordT;
+	 type StorageT is array(0 to 63) of WordT;
 	 signal MEM: StorageT;
 
 begin
