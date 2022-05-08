@@ -24,9 +24,9 @@ begin
         elsif (ALU_OP = "0001") then
             RES_i <= OP1 or OP2;
         elsif (ALU_OP = "0010") then
-            RES_i <= std_logic_vector(unsigned(OP1) + unsigned(OP2));
+            RES_i <= std_logic_vector(signed(OP1) + signed(OP2));
         elsif (ALU_OP = "0110") then
-            RES_i <= std_logic_vector(unsigned(OP1) - unsigned(OP2));
+            RES_i <= std_logic_vector(signed(OP1) - signed(OP2));
         elsif (ALU_OP = "0111") then
             if (OP1 < OP2) then
                 RES_i <= std_logic_vector(to_unsigned(1, RES_i'length));
@@ -39,6 +39,7 @@ begin
             RES_i <= std_logic_vector(to_unsigned(0, RES_i'length));
         end if;
     end process;
+    -- TO-DO: from sge to xori opecodes to be implemented
     
     process (RES_i)
     begin

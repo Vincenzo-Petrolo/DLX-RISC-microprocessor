@@ -4,7 +4,8 @@ use IEEE.numeric_std.all;
 
 entity RF is
 port (
-    CLK      : in  std_logic;
+    -- RF does not need CLK since its functionality is synced by the previous and
+    --      the succesive pipeline registers
     RST      : in  std_logic;
     WE       : in  std_logic;
     ADDR_RD1 : in  std_logic_vector(4 downto 0);
@@ -25,18 +26,16 @@ architecture beh of RF is
 
 begin
 
-    RW : process (CLK)
+    RW : process (WE, ADDR_RD1, ADDR_RD2, ADDR_WR, DATA_IN)
     begin
-        if (rising_edge(CLK)) then
-            if (RST = '0') then
-					DATA_OUT1 <= REGS(to_integer(unsigned(ADDR_RD1)));
-					DATA_OUT2 <= REGS(to_integer(unsigned(ADDR_RD2)));
-					if (WE = '1') then
-						REGS(to_integer(unsigned(ADDR_WR))) <= DATA_IN;            
-				   end if;
-				elsif (RST = '1') then
-					REGS <= (others => (others => '0'));
-				end if;
+        if (RST = '0') then
+            DATA_OUT1 <= REGS(to_integer(unsigned(ADDR_RD1)));
+            DATA_OUT2 <= REGS(to_integer(unsigned(ADDR_RD2)));
+            if (WE = '1') then
+                REGS(to_integer(unsigned(ADDR_WR))) <= DATA_IN;            
+            end if;
+        elsif (RST = '1') then
+            REGS <= (others => (others => '0'));
         end if;
     end process RW;
 
