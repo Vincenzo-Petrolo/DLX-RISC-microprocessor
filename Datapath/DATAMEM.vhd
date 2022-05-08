@@ -16,10 +16,9 @@ end DATAMEM;
 
 architecture beh of DATAMEM is
 
-    subtype MEM_ADDR is natural range 0 to 2**31;
-    type MEM_ARRAY is array(MEM_ADDR) of std_logic_vector(31 downto 0);
-    signal MEM : MEM_ARRAY;
-
+	 subtype WordT is std_logic_vector(31 downto 0);
+	 type StorageT is array(0 to (2**32)-1) of WordT;
+	 signal MEM: StorageT;
 
 begin
 

@@ -60,7 +60,7 @@ architecture struct of CPU is
     signal MemRead_i, MemWrite_i : std_logic;
     
 begin
-    CPU_DP: DP port map (CLK, RST, INSTR_i(25 downto 21),  INSTR_i(20 downto 16), INSTR_i(16 downto 11),
+    CPU_DP: DP port map (CLK, RST, INSTR_i(25 downto 21),  INSTR_i(20 downto 16), INSTR_i(15 downto 11),
                         INSTR_i(15 downto 0), DATA_IN_i, RegDst_i, RegWrite_i, PCSrc_i, ALUSrc_i, ALUOpcode_i,
                         MemToReg_i, PC_OUT_i, ALU_OUT_i, DATA_OUT_i);
     CPU_INSTRMEM: INSTRMEM port map (PC_OUT_i, INSTR_i);

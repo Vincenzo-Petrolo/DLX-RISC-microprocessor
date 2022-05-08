@@ -54,11 +54,14 @@ architecture struct of DP is
     end component;
     
     component MUX21 is
-    port (
-        IN0, IN1 : in std_logic_vector(31 downto 0);
-        S : in std_logic;
-        O : out std_logic_vector(31 downto 0)
-    );
+	 generic (
+		 NBIT : natural := 32
+	 );
+	 port (
+	 	 IN0, IN1 : in std_logic_vector((NBIT-1) downto 0);
+		 S : in std_logic;
+		 O : out std_logic_vector((NBIT-1) downto 0)
+		 );
     end component;
     
     component ALU is
@@ -89,11 +92,11 @@ begin
     DATA_OUT <= DATA_OUT2_i;
     
     PC: REG generic map (32) port map (CLK, RST, PC_IN_i, PC_OUT_i);
-    PC_ADDER: ALU port map (PC_OUT_i, x"0004", "0000", PC_ADDER_OUT_i);
-    ADDR_WR_MUX: MUX21 port map (ADDR_R2, ADDR_R3, RegDst, ADDR_WR_MUX_OUT_i); 
+    PC_ADDER: ALU port map (PC_OUT_i, x"00000004", "0000", PC_ADDER_OUT_i);
+    ADDR_WR_MUX: MUX21 generic map (5) port map (ADDR_R2, ADDR_R3, RegDst, ADDR_WR_MUX_OUT_i); 
     REGFILE: RF port map (CLK, RST, RegWrite, ADDR_R1, ADDR_R2, ADDR_WR_MUX_OUT_i, MEM_MUX_OUT_i, DATA_OUT1_i, DATA_OUT2_i);
     ALU_MUX: MUX21 port map (DATA_OUT2_i, SE_IMM, ALUSrc, ALU_MUX_OUT_i);
-    ALU_DP: ALU port map (ADDR_R1, ALU_MUX_OUT_i, ALUOpcode, ALU_OUT_i);
+    ALU_DP: ALU port map (DATA_OUT1_i, ALU_MUX_OUT_i, ALUOpcode, ALU_OUT_i);
     PC_BRANCH_ADDER: ALU port map (PC_ADDER_OUT_i, SHSE_IMM, "0000", PC_BRANCH_ADDER_OUT_i);
     PC_MUX: MUX21 port map (PC_ADDER_OUT_i, PC_BRANCH_ADDER_OUT_i, PCSrc, PC_IN_i);
     MEM_MUX: MUX21 port map (DATA_IN, ALU_OUT_i, MemToReg, MEM_MUX_OUT_i);

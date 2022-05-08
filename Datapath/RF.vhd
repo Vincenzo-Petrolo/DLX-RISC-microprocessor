@@ -29,14 +29,14 @@ begin
     begin
         if (rising_edge(CLK)) then
             if (RST = '0') then
-            DATA_OUT1 <= REGS(to_integer(unsigned(ADDR_RD1)));
-            DATA_OUT2 <= REGS(to_integer(unsigned(ADDR_RD2)));
-        end if;
-        if (WE = '1') then
-            REGS(to_integer(unsigned(ADDR_WR))) <= DATA_IN;
-        end if;
-        elsif(RST = '1') then
-            REGS <= (others => (others => '0'));
+					DATA_OUT1 <= REGS(to_integer(unsigned(ADDR_RD1)));
+					DATA_OUT2 <= REGS(to_integer(unsigned(ADDR_RD2)));
+					if (WE = '1') then
+						REGS(to_integer(unsigned(ADDR_WR))) <= DATA_IN;            
+				   end if;
+				elsif (RST = '1') then
+					REGS <= (others => (others => '0'));
+				end if;
         end if;
     end process RW;
 

@@ -2,10 +2,14 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 entity MUX21 is
+
+generic (
+    NBIT : natural := 32
+);
 port (
-    IN0, IN1 : in std_logic_vector(31 downto 0);
+    IN0, IN1 : in std_logic_vector((NBIT-1) downto 0);
     S : in std_logic;
-    O : out std_logic_vector(31 downto 0)
+    O : out std_logic_vector((NBIT-1) downto 0)
     );
 end MUX21;
 
