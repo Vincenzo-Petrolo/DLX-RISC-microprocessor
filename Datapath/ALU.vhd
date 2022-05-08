@@ -13,39 +13,42 @@ end ALU;
 
 architecture beh of ALU is
 
+	signal RES_i : std_logic_vector(31 downto 0);
     
 begin
     
     process (OP1, OP2, ALU_OP)
     begin
         if (ALU_OP = "0000") then
-            RES <= OP1 and OP2;
+            RES_i <= OP1 and OP2;
         elsif (ALU_OP = "0001") then
-            RES <= OP1 or OP2;
+            RES_i <= OP1 or OP2;
         elsif (ALU_OP = "0010") then
-            RES <= std_logic_vector(unsigned(OP1) + unsigned(OP2));
+            RES_i <= std_logic_vector(unsigned(OP1) + unsigned(OP2));
         elsif (ALU_OP = "0110") then
-            RES <= std_logic_vector(unsigned(OP1) - unsigned(OP2));
+            RES_i <= std_logic_vector(unsigned(OP1) - unsigned(OP2));
         elsif (ALU_OP = "0111") then
             if (OP1 < OP2) then
-                RES <= std_logic_vector(unsigned(1));
+                RES_i <= std_logic_vector(to_unsigned(1, RES_i'length));
             else
-                RES <= std_logic_vector(unsigned(0));
+                RES_i <= std_logic_vector(to_unsigned(0, RES_i'length));
             end if;
         elsif (ALU_OP = "1100") then
-            RES <= OP1 nor OP2;
+            RES_i <= OP1 nor OP2;
         else
-            RES <= std_logic_vector(unsigned(0));
+            RES_i <= std_logic_vector(to_unsigned(0, RES_i'length));
         end if;
     end process;
     
-    process (RES)
+    process (RES_i)
     begin
-        if (RES = std_logic_vector(unsigned(0))) then
+        if (RES_i = std_logic_vector(to_unsigned(0, RES_i'length))) then
             ZERO <= '1';
         else
             ZERO <= '0';
         end if;
     end process;
+	 
+	 RES <= RES_i;
     
 end beh;
