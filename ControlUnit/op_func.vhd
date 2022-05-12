@@ -30,5 +30,16 @@ package op_func is
     constant LW   : std_logic_vector(OPCODE_SIZE - 1 downto 0) := X"23";
     constant SW   : std_logic_vector(OPCODE_SIZE - 1 downto 0) := X"2B";
 
-    --FUNC declaration
+    --FUNC declaration for R-type instruction
+    constant FUNC_SLL   : std_logic_vector(FUNC_SIZE - 1 downto 0) := X"04";
+    constant FUNC_SRL   : std_logic_vector(FUNC_SIZE - 1 downto 0) := X"06";
+    constant FUNC_SLL   : std_logic_vector(FUNC_SIZE - 1 downto 0) := X"04";
+    constant FUNC_ADD   : std_logic_vector(FUNC_SIZE - 1 downto 0) := X"20";
+    constant FUNC_SUB   : std_logic_vector(FUNC_SIZE - 1 downto 0) := X"22";
+    constant FUNC_AND   : std_logic_vector(FUNC_SIZE - 1 downto 0) := X"24";
+    constant FUNC_OR   : std_logic_vector(FUNC_SIZE - 1 downto 0) := X"25";
+    constant FUNC_XOR   : std_logic_vector(FUNC_SIZE - 1 downto 0) := X"26";
+    constant FUNC_SNE   : std_logic_vector(FUNC_SIZE - 1 downto 0) := X"29";
+    constant FUNC_SLE   : std_logic_vector(FUNC_SIZE - 1 downto 0) := X"2C";
+    constant FUNC_SGE   : std_logic_vector(FUNC_SIZE - 1 downto 0) := X"2D";
 end op_func;
