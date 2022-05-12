@@ -11,11 +11,11 @@ package cw_flags is
     -- IF stage has control word size of 2
     constant CW_IF_LEN : integer := 2;
     -- Select Program counter source
-    constant SEL_PCSRC_0 : std_logic_vector(CU_IF_LEN - 1 downto 0) := "00";
-    constant SEL_PCSRC_1 : std_logic_vector(CU_IF_LEN - 1 downto 0) := "10";
+    constant SEL_PCSRC_0 : std_logic_vector(CW_IF_LEN - 1 downto 0) := "00";
+    constant SEL_PCSRC_1 : std_logic_vector(CW_IF_LEN - 1 downto 0) := "10";
     -- Enable the pipeline register
-    constant EN_IF_ID_0 : std_logic_vector(CU_IF_LEN - 1 downto 0) := "00";
-    constant EN_IF_ID_1 : std_logic_vector(CU_IF_LEN - 1 downto 0) := "01";
+    constant EN_IF_ID_0 : std_logic_vector(CW_IF_LEN - 1 downto 0) := "00";
+    constant EN_IF_ID_1 : std_logic_vector(CW_IF_LEN - 1 downto 0) := "01";
     -- End of IF stage
 
     -- ID stage has control word size of 2
