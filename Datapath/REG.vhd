@@ -2,13 +2,13 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 entity REG is
-generic (
-    BITS : integer := 32
+    generic (
+        BITS : integer := 32
     );
-port (
-    CLK, RST : in std_logic;
-    I : in std_logic_vector(BITS-1 downto 0);
-    O : out std_logic_vector(BITS-1 downto 0)
+    port (
+        CLK, RST : in std_logic;
+        I        : in std_logic_vector(BITS - 1 downto 0);
+        O        : out std_logic_vector(BITS - 1 downto 0)
     );
 end REG;
 
