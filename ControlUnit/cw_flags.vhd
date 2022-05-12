@@ -48,11 +48,13 @@ package cw_flags is
     -- WB stage has control word size of 
     constant CW_WB_LEN : integer := 2;
     -- Select the source for the second input of the ALU
-    constant SEL_MEMTOREG_0 : std_logic_vector(CW_EX_LEN - 1 downto 0) := "00";
-    constant SEL_MEMTOREG_1 : std_logic_vector(CW_EX_LEN - 1 downto 0) := "10";
+    constant SEL_MEMTOREG_0 : std_logic_vector(CW_WB_LEN - 1 downto 0) := "00";
+    constant SEL_MEMTOREG_1 : std_logic_vector(CW_WB_LEN - 1 downto 0) := "10";
     -- Select the source for the second input of the ALU
-    constant SEL_JAL_0 : std_logic_vector(CW_EX_LEN - 1 downto 0) := "00";
-    constant SEL_JAL_1 : std_logic_vector(CW_EX_LEN - 1 downto 0) := "01";
+    constant SEL_JAL_0 : std_logic_vector(CW_WB_LEN - 1 downto 0) := "00";
+    constant SEL_JAL_1 : std_logic_vector(CW_WB_LEN - 1 downto 0) := "01";
     -- End of WB stage
+	 
+	 constant TEST : std_logic_vector(8 downto 0) := "0000"&"00000";
 
 end cw_flags;
