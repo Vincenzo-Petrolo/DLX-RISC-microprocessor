@@ -3,20 +3,20 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity ALU is
-port (
-    OP1, OP2 : in std_logic_vector(31 downto 0);
-    ALU_OP : in std_logic_vector(3 downto 0);
-    RES : out std_logic_vector(31 downto 0);
-    ZERO : out std_logic
+    port (
+        OP1, OP2 : in std_logic_vector(31 downto 0);
+        ALU_OP   : in std_logic_vector(3 downto 0);
+        RES      : out std_logic_vector(31 downto 0);
+        ZERO     : out std_logic
     );
 end ALU;
 
 architecture beh of ALU is
 
-	signal RES_i : std_logic_vector(31 downto 0);
-    
+    signal RES_i : std_logic_vector(31 downto 0);
+
 begin
-    
+
     process (OP1, OP2, ALU_OP)
     begin
         if (ALU_OP = "0000") then
@@ -40,7 +40,7 @@ begin
         end if;
     end process;
     -- TO-DO: from sge to xori opecodes to be implemented
-    
+
     process (RES_i)
     begin
         if (RES_i = std_logic_vector(to_unsigned(0, RES_i'length))) then
@@ -49,7 +49,7 @@ begin
             ZERO <= '0';
         end if;
     end process;
-	 
-	 RES <= RES_i;
-    
+
+    RES <= RES_i;
+
 end beh;
