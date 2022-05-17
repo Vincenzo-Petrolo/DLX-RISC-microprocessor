@@ -19,13 +19,16 @@ package cw_flags is
     -- End of IF stage
 
     -- ID stage has control word size of 2
-    constant CW_ID_LEN : integer := 2;
+    constant CW_ID_LEN : integer := 3;
     -- Select the destination register
-    constant SEL_REGDST_0 : std_logic_vector(CW_ID_LEN - 1 downto 0) := "00";
-    constant SEL_REGDST_1 : std_logic_vector(CW_ID_LEN - 1 downto 0) := "10";
+    constant SEL_REGDST_0 : std_logic_vector(CW_ID_LEN - 1 downto 0) := "000";
+    constant SEL_REGDST_1 : std_logic_vector(CW_ID_LEN - 1 downto 0) := "100";
+    -- Select R31 if JAL
+    constant SEL_REGDST_0 : std_logic_vector(CW_ID_LEN - 1 downto 0) := "000";
+    constant SEL_REGDST_1 : std_logic_vector(CW_ID_LEN - 1 downto 0) := "010";
     -- Enable the Register file for writing
-    constant EN_REGWRITE_0 : std_logic_vector(CW_ID_LEN - 1 downto 0) := "00";
-    constant EN_REGWRITE_1 : std_logic_vector(CW_ID_LEN - 1 downto 0) := "01";
+    constant EN_REGWRITE_0 : std_logic_vector(CW_ID_LEN - 1 downto 0) := "000";
+    constant EN_REGWRITE_1 : std_logic_vector(CW_ID_LEN - 1 downto 0) := "001";
     -- End of ID stage
 
     -- EX mem stage has control word size of 3
@@ -54,7 +57,7 @@ package cw_flags is
     constant SEL_JAL_0 : std_logic_vector(CW_WB_LEN - 1 downto 0) := "00";
     constant SEL_JAL_1 : std_logic_vector(CW_WB_LEN - 1 downto 0) := "01";
     -- End of WB stage
-	 
-	 constant TEST : std_logic_vector(8 downto 0) := "0000"&"00000";
+
+    constant TEST : std_logic_vector(8 downto 0) := "0000" & "00000";
 
 end cw_flags;
