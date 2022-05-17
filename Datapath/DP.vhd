@@ -86,6 +86,7 @@ architecture struct of DP is
 
     signal PC_IN_i, PC_OUT_i, PC_ADDER_OUT_i : std_logic_vector(31 downto 0);
     signal ADDR_WR_MUX_OUT_i                 : std_logic_vector(4 downto 0);
+    signal JAL_R31_ADDR_MUX_OUT_i            : std_logic_vector(4 downto 0);
     signal DATA_OUT1_i, DATA_OUT2_i          : std_logic_vector(31 downto 0);
     signal SE_IMM_i, SHSE_IMM_i              : std_logic_vector(31 downto 0);
     signal ALU_MUX_OUT_i                     : std_logic_vector(31 downto 0);
@@ -134,6 +135,7 @@ begin
     PC_ADDER        : ADDER port map(PC_OUT_i, x"00000004", PC_ADDER_OUT_i);
     ADDR_WR_MUX     : MUX21 generic map(5) port map(ADDR_R2_i, ADDR_R3_i, RegDst, ADDR_WR_MUX_OUT_i);
     JAL_MUX         : MUX21 generic map(32) port map(MEM_MUX_OUT_i, PC_ADDER_REG_MEM_WB_i, Jal, JAL_MUX_OUT_i);
+    JAL_R31_ADDR    : MUX21 generic map(5) port map(ADDR_WR_MUX_OUT_i, "11111",Jal, JAL_R31_ADDR_MUX_OUT_i);
     REGFILE         : RF port map(RST, RegWrite, ADDR_R1_i, ADDR_R2_i, ADDR_WR_MUX_OUT_REG_MEM_WB_i, JAL_MUX_OUT_i, DATA_OUT1_i, DATA_OUT2_i);
     ALU_MUX         : MUX21 port map(RF_DATA_OUT2_REG_ID_EX_i, SE_IMM_REG_ID_EX_i, ALUSrc, ALU_MUX_OUT_i);
     ALU_DP          : ALU port map(RF_DATA_OUT1_REG_ID_EX_i, ALU_MUX_OUT_i, ALUOpcode, ALU_OUT_i, ZERO_i);
