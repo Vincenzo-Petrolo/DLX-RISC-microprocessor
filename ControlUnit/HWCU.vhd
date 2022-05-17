@@ -30,16 +30,95 @@ architecture beh of HWCU is
     -- Declare the LUT of the hardwired CU
     signal lookup_table : lut_t := (
         --RTYPE Mapping
-        std_logic_vector(SEL_PCSRC_0 or EN_IF_ID_1) &          --IF
-        std_logic_vector(SEL_REGDST_1 or EN_REGWRITE_1) &      --ID
-        std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_0) & --EX
-        std_logic_vector(SEL_MEMTOREG_1 or SEL_JAL_0),         --WB
-
-        std_logic_vector(SEL_PCSRC_0 or EN_IF_ID_1) &          --IF
-        std_logic_vector(SEL_REGDST_1 or EN_REGWRITE_1) &      --ID
-        std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_0) & --EX
-        std_logic_vector(SEL_MEMTOREG_1 or SEL_JAL_0)          --WB
-
+        std_logic_vector(SEL_PCSRC_0 or EN_IF_ID_1) &                  --IF
+        std_logic_vector(SEL_REGDST_1 or SEL_R31_0 or EN_REGWRITE_1) & --ID
+        std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_0) &         --EX
+        std_logic_vector(SEL_MEMTOREG_1 or SEL_JAL_0),                 --WB
+        --J
+        std_logic_vector(SEL_PCSRC_1 or EN_IF_ID_1) &                  --IF
+        std_logic_vector(SEL_REGDST_0 or SEL_R31_0 or EN_REGWRITE_0) & --ID
+        std_logic_vector(BRANCH_0 or JUMP_1 or SEL_ALUSRC_0) &         --EX
+        std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),                 --WB
+        --JAL
+        std_logic_vector(SEL_PCSRC_1 or EN_IF_ID_1) &                  --IF
+        std_logic_vector(SEL_REGDST_0 or SEL_R31_1 or EN_REGWRITE_1) & --ID
+        std_logic_vector(BRANCH_0 or JUMP_1 or SEL_ALUSRC_0) &         --EX
+        std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_1),                 --WB
+        --BEQZ
+        std_logic_vector(SEL_PCSRC_1 or EN_IF_ID_1) &                  --IF
+        std_logic_vector(SEL_REGDST_0 or SEL_R31_0 or EN_REGWRITE_0) & --ID
+        std_logic_vector(BRANCH_1 or JUMP_0 or SEL_ALUSRC_0) &         --EX
+        std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),                 --WB
+        --BNEZ, ALU receives ALUOPCDOE which tells it to check against != 0 but it uses ZERO flag signal
+        std_logic_vector(SEL_PCSRC_1 or EN_IF_ID_1) &                  --IF
+        std_logic_vector(SEL_REGDST_0 or SEL_R31_0 or EN_REGWRITE_0) & --ID
+        std_logic_vector(BRANCH_1 or JUMP_0 or SEL_ALUSRC_0) &         --EX
+        std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),                 --WB
+        --ADDI
+        std_logic_vector(SEL_PCSRC_0 or EN_IF_ID_1) &                  --IF
+        std_logic_vector(SEL_REGDST_0 or SEL_R31_0 or EN_REGWRITE_1) & --ID
+        std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) &         --EX
+        std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),                 --WB
+        --SUBI
+        std_logic_vector(SEL_PCSRC_0 or EN_IF_ID_1) &                  --IF
+        std_logic_vector(SEL_REGDST_0 or SEL_R31_0 or EN_REGWRITE_1) & --ID
+        std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) &         --EX
+        std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),                 --WB
+        --ANDI
+        std_logic_vector(SEL_PCSRC_0 or EN_IF_ID_1) &                  --IF
+        std_logic_vector(SEL_REGDST_0 or SEL_R31_0 or EN_REGWRITE_1) & --ID
+        std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) &         --EX
+        std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),                 --WB
+        --ORI
+        std_logic_vector(SEL_PCSRC_0 or EN_IF_ID_1) &                  --IF
+        std_logic_vector(SEL_REGDST_0 or SEL_R31_0 or EN_REGWRITE_1) & --ID
+        std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) &         --EX
+        std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),                 --WB
+        --XORI
+        std_logic_vector(SEL_PCSRC_0 or EN_IF_ID_1) &                  --IF
+        std_logic_vector(SEL_REGDST_0 or SEL_R31_0 or EN_REGWRITE_1) & --ID
+        std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) &         --EX
+        std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),                 --WB
+        --SLLI
+        std_logic_vector(SEL_PCSRC_0 or EN_IF_ID_1) &                  --IF
+        std_logic_vector(SEL_REGDST_0 or SEL_R31_0 or EN_REGWRITE_1) & --ID
+        std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) &         --EX
+        std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),                 --WB
+        --NOP
+        std_logic_vector(SEL_PCSRC_0 or EN_IF_ID_0) &                  --IF
+        std_logic_vector(SEL_REGDST_0 or SEL_R31_0 or EN_REGWRITE_0) & --ID
+        std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) &         --EX
+        std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),                 --WB
+        --SRLI
+        std_logic_vector(SEL_PCSRC_0 or EN_IF_ID_1) &                  --IF
+        std_logic_vector(SEL_REGDST_0 or SEL_R31_0 or EN_REGWRITE_1) & --ID
+        std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) &         --EX
+        std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),                 --WB
+        --SNEI
+        std_logic_vector(SEL_PCSRC_0 or EN_IF_ID_1) &                  --IF
+        std_logic_vector(SEL_REGDST_0 or SEL_R31_0 or EN_REGWRITE_1) & --ID
+        std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) &         --EX
+        std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),                 --WB
+        --SLEI
+        std_logic_vector(SEL_PCSRC_0 or EN_IF_ID_1) &                  --IF
+        std_logic_vector(SEL_REGDST_0 or SEL_R31_0 or EN_REGWRITE_1) & --ID
+        std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) &         --EX
+        std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),                 --WB
+        --SGEI
+        std_logic_vector(SEL_PCSRC_0 or EN_IF_ID_1) &                  --IF
+        std_logic_vector(SEL_REGDST_0 or SEL_R31_0 or EN_REGWRITE_1) & --ID
+        std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) &         --EX
+        std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),                 --WB
+        --LW
+        std_logic_vector(SEL_PCSRC_0 or EN_IF_ID_1) &                  --IF
+        std_logic_vector(SEL_REGDST_0 or SEL_R31_0 or EN_REGWRITE_1) & --ID
+        std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) &         --EX
+        std_logic_vector(SEL_MEMTOREG_1 or SEL_JAL_0),                 --WB
+        --SW
+        std_logic_vector(SEL_PCSRC_0 or EN_IF_ID_1) &                  --IF
+        std_logic_vector(SEL_REGDST_0 or SEL_R31_0 or EN_REGWRITE_0) & --ID
+        std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) &         --EX
+        std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0)                  --WB
     );
 
 begin
