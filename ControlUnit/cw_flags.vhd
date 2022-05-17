@@ -24,8 +24,8 @@ package cw_flags is
     constant SEL_REGDST_0 : std_logic_vector(CW_ID_LEN - 1 downto 0) := "000";
     constant SEL_REGDST_1 : std_logic_vector(CW_ID_LEN - 1 downto 0) := "100";
     -- Select R31 if JAL
-    constant SEL_REGDST_0 : std_logic_vector(CW_ID_LEN - 1 downto 0) := "000";
-    constant SEL_REGDST_1 : std_logic_vector(CW_ID_LEN - 1 downto 0) := "010";
+    constant SEL_R31_0 : std_logic_vector(CW_ID_LEN - 1 downto 0) := "000";
+    constant SEL_R31_1 : std_logic_vector(CW_ID_LEN - 1 downto 0) := "010";
     -- Enable the Register file for writing
     constant EN_REGWRITE_0 : std_logic_vector(CW_ID_LEN - 1 downto 0) := "000";
     constant EN_REGWRITE_1 : std_logic_vector(CW_ID_LEN - 1 downto 0) := "001";
