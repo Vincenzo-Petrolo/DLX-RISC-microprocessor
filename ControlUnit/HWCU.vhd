@@ -3,6 +3,7 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 --use work.op_func.all;
 use work.cw_flags.all;
+use work.aluOpCodes.all;
 
 entity HWCU is
     port (
@@ -10,15 +11,21 @@ entity HWCU is
         FUNC     : in std_logic_vector(10 downto 0);
         CLK, RST : in std_logic;
         --CONTROL SIGNALS--
-        RegDst    : out std_logic;
-        RegWrite  : out std_logic;
-        PCSrc     : out std_logic;
+        -- IF
+        -- ID
+        -- EX
         ALUSrc    : out std_logic;
-        ALUOpcode : out std_logic_vector(3 downto 0);
-        MemToReg  : out std_logic;
         Jump      : out std_logic;
         Branch    : out std_logic;
-        Jal       : out std_logic
+        ALUOpcode : out std_logic_vector(3 downto 0);
+        --MEM
+        PCSrc    : out std_logic;
+        En_IF_ID : out std_logic;
+        --WB
+        MemToReg : out std_logic;
+        RegDst   : out std_logic;
+        Jal      : out std_logic
+        RegWrite : out std_logic;
 
     );
 end HWCU;
@@ -120,7 +127,109 @@ architecture beh of HWCU is
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) &         --EX
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0)                  --WB
     );
-
+    -- Registers for pipeline
+    signal curr_EX, next_EX                                           : std_logic_vector(2 downto 0);
+    signal curr_aluopcode, next_aluopcode                             : std_logic_vector(4 downto 0);
+    signal curr_MEM1, next_MEM1, curr_MEM2, next_MEM2                 : std_logic_vector(1 downto 0);
+    signal curr_WB1, next_WB1, curr_WB2, next_WB2, curr_WB3, next_WB3 : std_logic_vector(3 downto 0);
+    -- General wiring
+    signal wire_lut_out : std_logic_vector(CW_IF_LEN + CW_ID_LEN + CW_EX_LEN + CW_WB_LEN - 1 downto 0);
 begin
+    reg_update : process (CLK, RST, next_aluopcode, next_MEM1, next_MEM2, next_WB1, next_WB2, next_WB3)
+    begin
+        if (RST = '1') then
+            curr_aluopcode <= (others => '0');
+            curr_EX        <= (others => '0');
+            curr_MEM1      <= (others => '0');
+            curr_MEM2      <= (others => '0');
+            curr_WB1       <= (others => '0');
+            curr_WB2       <= (others => '0');
+            curr_WB3       <= (others => '0');
+        elsif (rising_edge(CLK)) then
+            curr_aluopcode <= next_aluopcode;
+            curr_EX        <= next_EX;
+            curr_MEM1      <= next_MEM1;
+            curr_MEM2      <= next_MEM2;
+            curr_WB1       <= next_WB1;
+            curr_WB2       <= next_WB2;
+            curr_WB3       <= next_WB3;
+        end if;
+    end process;
+
+    -- Get the control word out from the LUT and map into a wire
+    wire_lut_out <= lookup_table(to_integer(unsigned(OPCODE)));
+
+    -- takes care of OPCODE and the wiring of cw* registers
+    cwreg_pipeline : process (OPCODE, lookup_table, wire_lut_out, curr_MEM1, curr_WB1, curr_WB2)
+    begin
+        -- FIRST STAGE OF PIPELINE (Right out the LUT)
+        -- Map the first bits into the MEM pipeline register
+        next_MEM1 <= wire_lut_out(CW_IF_LEN + CW_ID_LEN + CW_EX_LEN + CW_WB_LEN - 1 downto CW_ID_LEN + CW_EX_LEN + CW_WB_LEN);
+        -- Map the other bits into the EX register of the pipeline
+        next_EX <= wire_lut_out(CW_EX_LEN + CW_WB_LEN - 1 downto CW_WB_LEN);
+        -- Map the remaining bits in the WB
+        next_WB1 <= wire_lut_out(CW_ID_LEN + CW_EX_LEN + CW_WB_LEN - 1 downto CW_EX_LEN + CW_WB_LEN) & wire_lut_out(CW_WB_LEN - 1 downto 0);
+
+        -- NEXT STAGES of pipeline
+        next_MEM2 <= curr_MEM1;
+        next_WB2  <= curr_WB1;
+        next_WB3  <= curr_WB2;
+    end process;
+
+    alucontrol : process (OPCODE, FUNC)
+    begin
+        --See excel file for explanation on this approach, discuss together
+        case OPCODE is
+            when RTYPE =>
+                -- r type operations, directly forward the func
+                next_aluopcode <= FUNC;
+            when J | JAL =>
+                --J, JAL
+                next_aluopcode <= ALU_ADD;
+            when BEQZ | BNEZ =>
+                next_aluopcode <= ALU_ADD;
+            when ADDI =>
+                next_aluopcode <= ALU_ADD;
+            when SUBI =>
+                next_aluopcode <= ALU_SUB;
+            when ANDI =>
+                next_aluopcode <= ALU_AND;
+            when ORI =>
+                next_aluopcode <= ALU_OR;
+            when XORI =>
+                next_aluopcode <= ALU_XOR;
+            when SLLI =>
+                next_aluopcode <= ALU_SLL;
+            when NOP =>
+                next_aluopcode <= ALU_ADD;
+            when SRLI =>
+                next_aluopcode <= ALU_SRL;
+            when SNEI =>
+                next_aluopcode <= ALU_SNE;
+            when SLEI =>
+                next_aluopcode <= ALU_SLE;
+            when SGEI =>
+                next_aluopcode <= ALU_SGE;
+            when LW =>
+                next_aluopcode <= ALU_ADD;
+            when SW =>
+                next_aluopcode <= ALU_ADD;
+            when others => 
+                next_aluopcode <= (others => '0');
+        end case;
+    end process;
+
+    -- Map the pipeline registers to the output
+    AluSrc <= curr_EX(0);
+    Jump <= curr_EX(1);
+    Branch <= curr_EX(2);
+    ALUOpcode <= curr_aluopcode;
+    PCSrc <= curr_MEM2(1);
+    En_IF_ID <= curr_MEM2(0);
+    RegDst <= curr_WB3(3);
+    Regwrite <= curr_WB3(2);
+    MemToReg <= curr_WB3(1);
+    Jal <= curr_WB3(0);
+
 
 end architecture; -- arch
