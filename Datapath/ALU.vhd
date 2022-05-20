@@ -1,6 +1,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+use work.aluOpCodes.all;
 
 entity ALU is
     port (
@@ -19,27 +20,42 @@ begin
 
     process (OP1, OP2, ALU_OP)
     begin
-        if (ALU_OP = "0000") then
+        if (ALU_OP = ALU_AND) then
             RES_i <= OP1 and OP2;
-        elsif (ALU_OP = "0001") then
+        elsif (ALU_OP = ALU_OR) then
             RES_i <= OP1 or OP2;
-        elsif (ALU_OP = "0010") then
+        elsif (ALU_OP = ALU_ADD) then
             RES_i <= std_logic_vector(signed(OP1) + signed(OP2));
-        elsif (ALU_OP = "0110") then
+        elsif (ALU_OP = ALU_SUB) then
             RES_i <= std_logic_vector(signed(OP1) - signed(OP2));
-        elsif (ALU_OP = "0111") then
-            if (OP1 < OP2) then
+        elsif (ALU_OP = ALU_SLE) then
+            if (OP1 <= OP2) then --maybe this notation doesnt work
+                RES_i   <= std_logic_vector(to_unsigned(1, RES_i'length));
+            else
+                RES_i <= std_logic_vector(to_unsigned(0, RES_i'length));
+            end if;
+        elsif (ALU_OP = ALU_SGE) then
+            if (OP1 >= OP2) then
                 RES_i <= std_logic_vector(to_unsigned(1, RES_i'length));
             else
                 RES_i <= std_logic_vector(to_unsigned(0, RES_i'length));
             end if;
-        elsif (ALU_OP = "1100") then
-            RES_i <= OP1 nor OP2;
+        elsif (ALU_OP = ALU_SNE) then
+            if (OP1 >= OP2) then
+                RES_i <= std_logic_vector(to_unsigned(1, RES_i'length));
+            else
+                RES_i <= std_logic_vector(to_unsigned(0, RES_i'length));
+            end if;
+        elsif (ALU_OP = ALU_XOR) then
+            RES_i <= OP1 xor OP2;
+        elsif (ALU_OP = ALU_SLL) then
+            RES_i <= OP1 sll OP2;
+        elsif (ALU_OP = ALU_SLL) then
+            RES_i <= OP1 srl OP2;
         else
             RES_i <= std_logic_vector(to_unsigned(0, RES_i'length));
         end if;
     end process;
-    -- TO-DO: from sge to xori opecodes to be implemented
 
     process (RES_i)
     begin
