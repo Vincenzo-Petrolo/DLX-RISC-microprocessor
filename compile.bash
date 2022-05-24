@@ -1,0 +1,14 @@
+vcom Datapath/REG.vhd
+vcom Datapath/REGEN.vhd
+vcom Datapath/ADDER.vhd
+vcom Datapath/aluOpCodes.vhd
+vcom Datapath/ALU.vhd
+vcom Datapath/DATAMEM.vhd
+vcom Datapath/INSTRMEM.vhd
+vcom Datapath/MUX21.vhd
+vcom Datapath/RF.vhd
+vcom Datapath/DP.vhd
+vcom ControlUnit/cw_flags.vhd
+vcom ControlUnit/op_func.vhd
+vcom ControlUnit/HWCU.vhd
+vcom Datapath/CPU.vhd

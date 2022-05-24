@@ -1,7 +1,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
---use work.op_func.all;
+use work.op_func.all;
 use work.cw_flags.all;
 use work.aluOpCodes.all;
 
@@ -24,8 +24,8 @@ entity HWCU is
         --WB
         MemToReg : out std_logic;
         RegDst   : out std_logic;
-        Jal      : out std_logic
-        RegWrite : out std_logic;
+        Jal      : out std_logic;
+        RegWrite : out std_logic
 
     );
 end HWCU;
@@ -33,7 +33,7 @@ end HWCU;
 architecture beh of HWCU is
     subtype control_word is std_logic_vector(CW_IF_LEN + CW_ID_LEN + CW_EX_LEN + CW_WB_LEN - 1 downto 0);
     -- Define LUT type
-    type lut_t is array (0 to 1) of control_word;
+    type lut_t is array (0 to 17) of control_word;
     -- Declare the LUT of the hardwired CU
     signal lookup_table : lut_t := (
         --RTYPE Mapping
@@ -129,9 +129,9 @@ architecture beh of HWCU is
     );
     -- Registers for pipeline
     signal curr_EX, next_EX                                           : std_logic_vector(2 downto 0);
-    signal curr_aluopcode, next_aluopcode                             : std_logic_vector(4 downto 0);
+    signal curr_aluopcode, next_aluopcode                             : std_logic_vector(ALU_OPCODE_LEN-1 downto 0);
     signal curr_MEM1, next_MEM1, curr_MEM2, next_MEM2                 : std_logic_vector(1 downto 0);
-    signal curr_WB1, next_WB1, curr_WB2, next_WB2, curr_WB3, next_WB3 : std_logic_vector(3 downto 0);
+    signal curr_WB1, next_WB1, curr_WB2, next_WB2, curr_WB3, next_WB3 : std_logic_vector(4 downto 0);
     -- General wiring
     signal wire_lut_out : std_logic_vector(CW_IF_LEN + CW_ID_LEN + CW_EX_LEN + CW_WB_LEN - 1 downto 0);
 begin
@@ -179,41 +179,42 @@ begin
     alucontrol : process (OPCODE, FUNC)
     begin
         --See excel file for explanation on this approach, discuss together
-        case OPCODE is
-            when RTYPE =>
+        case to_integer(unsigned(OPCODE)) is
+            when 16#00# => --RTYPE
                 -- r type operations, directly forward the func
-                next_aluopcode <= FUNC;
-            when J | JAL =>
+				--taking the last 5 bits
+                next_aluopcode <= FUNC(3 downto 0);
+            when 16#02# | 16#03# =>
                 --J, JAL
-                next_aluopcode <= ALU_ADD;
-            when BEQZ | BNEZ =>
-                next_aluopcode <= ALU_ADD;
-            when ADDI =>
-                next_aluopcode <= ALU_ADD;
-            when SUBI =>
-                next_aluopcode <= ALU_SUB;
-            when ANDI =>
-                next_aluopcode <= ALU_AND;
-            when ORI =>
-                next_aluopcode <= ALU_OR;
-            when XORI =>
-                next_aluopcode <= ALU_XOR;
-            when SLLI =>
-                next_aluopcode <= ALU_SLL;
-            when NOP =>
-                next_aluopcode <= ALU_ADD;
-            when SRLI =>
-                next_aluopcode <= ALU_SRL;
-            when SNEI =>
-                next_aluopcode <= ALU_SNE;
-            when SLEI =>
-                next_aluopcode <= ALU_SLE;
-            when SGEI =>
-                next_aluopcode <= ALU_SGE;
-            when LW =>
-                next_aluopcode <= ALU_ADD;
-            when SW =>
-                next_aluopcode <= ALU_ADD;
+                next_aluopcode <= ALU_ADD(3 downto 0);
+            when 16#04# | 16#05# => --BEQZ,BNEZ
+                next_aluopcode <= ALU_ADD(3 downto 0);
+            when 16#08# => --ADDI
+                next_aluopcode <= ALU_ADD(3 downto 0);
+            when 16#0A# => --SUBI
+                next_aluopcode <= ALU_SUB(3 downto 0);
+            when 16#0C# => --ANDI
+                next_aluopcode <= ALU_AND(3 downto 0);
+            when 16#0D# => --ORI
+                next_aluopcode <= ALU_OR(3 downto 0);
+            when 16#0E# => --XORI
+                next_aluopcode <= ALU_XOR(3 downto 0);
+            when 16#14# => --SLLI
+                next_aluopcode <= ALU_SLL(3 downto 0);
+            when 16#15# => --NOP
+                next_aluopcode <= ALU_ADD(3 downto 0);
+            when 16#16# => --SRLI
+                next_aluopcode <= ALU_SRL(3 downto 0);
+            when 16#19# => --SNEI
+                next_aluopcode <= ALU_SNE(3 downto 0);
+            when 16#1C# => --SLEI
+                next_aluopcode <= ALU_SLE(3 downto 0);
+            when 16#1D# => --SGEI
+                next_aluopcode <= ALU_SGE(3 downto 0);
+            when 16#23# => --LW
+                next_aluopcode <= ALU_ADD(3 downto 0);
+            when 16#2B# => --SW
+                next_aluopcode <= ALU_ADD(3 downto 0);
             when others => 
                 next_aluopcode <= (others => '0');
         end case;

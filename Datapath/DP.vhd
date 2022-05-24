@@ -18,6 +18,7 @@ entity DP is
         Jump      : in std_logic;
         Branch    : in std_logic;
         Jal       : in std_logic;
+		EN_IF_ID : in std_logic;
 
         --DATA SIGNALS--
         PC_OUT   : out std_logic_vector(31 downto 0);
@@ -51,6 +52,17 @@ architecture struct of DP is
             O        : out std_logic_vector(BITS - 1 downto 0)
         );
     end component;
+	component REGEN is
+		generic (
+		    BITS : integer := 32
+		);
+		port (
+		    CLK, RST : in std_logic;
+		    I        : in std_logic_vector(BITS - 1 downto 0);
+		    O        : out std_logic_vector(BITS - 1 downto 0);
+			EN : in std_logic
+		);
+	end component;
 
     component MUX21 is
         generic (
@@ -145,8 +157,8 @@ begin
     MEM_MUX         : MUX21 port map(ALU_OUT_REG_MEM_WB_i, DATA_IN_REG_MEM_WB_i, MemToReg, MEM_MUX_OUT_i);
 
     -- Pipeline REGS
-    PC_ADDER_REG_IF_ID : REG generic map(32) port map(CLK, RST, PC_ADDER_OUT_i, PC_ADDER_REG_IF_ID_i);
-    INSTRMEM_REG_IF_ID : REG generic map(32) port map(CLK, RST, INSTRUCTION, INSTRMEM_REG_IF_ID_i);
+    PC_ADDER_REG_IF_ID : REGEN generic map(32) port map(CLK, RST, PC_ADDER_OUT_i, PC_ADDER_REG_IF_ID_i, EN_IF_ID);
+    INSTRMEM_REG_IF_ID : REGEN generic map(32) port map(CLK, RST, INSTRUCTION, INSTRMEM_REG_IF_ID_i, EN_IF_ID);
     PC_ADDER_REG_ID_EX : REG generic map(32) port map(CLK, RST, PC_ADDER_REG_IF_ID_i, PC_ADDER_REG_ID_EX_i);
     JLABEL_REG_ID_EX   : REG generic map(32) port map(CLK, RST, JLABEL_i, JLABEL_REG_ID_EX_i);
     --PC_OFFSET_ID_EX: REG generic map (32) port map (CLK, RST, PC_OFFSET_i, PC_OFFSET_ID_EX_i);

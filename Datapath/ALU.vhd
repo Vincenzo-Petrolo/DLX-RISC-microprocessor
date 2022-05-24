@@ -49,9 +49,9 @@ begin
         elsif (ALU_OP = ALU_XOR) then
             RES_i <= OP1 xor OP2;
         elsif (ALU_OP = ALU_SLL) then
-            RES_i <= OP1 sll OP2;
+            RES_i <= std_logic_vector(shift_left(unsigned(OP1),to_integer(unsigned(OP2))));
         elsif (ALU_OP = ALU_SLL) then
-            RES_i <= OP1 srl OP2;
+            RES_i <= std_logic_vector(shift_right(unsigned(OP1),to_integer(unsigned(OP2))));
         else
             RES_i <= std_logic_vector(to_unsigned(0, RES_i'length));
         end if;
