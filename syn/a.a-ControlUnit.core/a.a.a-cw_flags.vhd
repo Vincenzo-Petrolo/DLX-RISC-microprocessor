@@ -8,9 +8,14 @@ package cw_flags is
     -- MemToReg : in std_logic;
     -- Jal : in std_logic;
 
-    -- IF stage has control word size of 1
-    constant CW_IF_LEN : integer := 0;
-
+    -- IF stage has control word size of 2
+    constant CW_IF_LEN : integer := 2;
+    -- Select Program counter source
+    constant SEL_PCSRC_0 : std_logic_vector(CW_IF_LEN - 1 downto 0) := "00";
+    constant SEL_PCSRC_1 : std_logic_vector(CW_IF_LEN - 1 downto 0) := "10";
+    -- Select Program counter source
+    constant EN_PC_0 : std_logic_vector(CW_IF_LEN - 1 downto 0) := "00";
+    constant EN_PC_1 : std_logic_vector(CW_IF_LEN - 1 downto 0) := "01";
     -- End of IF stage
 
     -- ID stage has control word size of 2

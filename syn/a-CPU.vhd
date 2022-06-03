@@ -25,13 +25,11 @@ architecture struct of CPU is
             Jump      : in std_logic;
             Branch    : in std_logic;
             Jal       : in std_logic;
-
-
             --DATA SIGNALS--
-            PC_OUT   : out std_logic_vector(31 downto 0);
-            ALU_OUT  : out std_logic_vector(31 downto 0);
-            DATA_OUT : out std_logic_vector(31 downto 0);
-			INSTRUCTION_IF_ID_OUT : out std_logic_vector(31 downto 0)
+            PC_OUT                : out std_logic_vector(31 downto 0);
+            ALU_OUT               : out std_logic_vector(31 downto 0);
+            DATA_OUT              : out std_logic_vector(31 downto 0);
+            INSTRUCTION_IF_ID_OUT : out std_logic_vector(31 downto 0)
         );
     end component;
 
@@ -52,40 +50,40 @@ architecture struct of CPU is
             DATA_OUT : out std_logic_vector(31 downto 0)
         );
     end component;
-	component HWCU is
-		port (
-		    OPCODE   : in std_logic_vector(5 downto 0);
-		    FUNC     : in std_logic_vector(10 downto 0);
-		    CLK, RST : in std_logic;
-		    --CONTROL SIGNALS--
-		    -- IF
-		    -- ID
-		    -- EX
-		    ALUSrc    : out std_logic;
-		    Jump      : out std_logic;
-		    Branch    : out std_logic;
-		    ALUOpcode : out std_logic_vector(3 downto 0);
-		    --MEM
-		    PCSrc    : out std_logic;
-			WE		 : out std_logic;
-			RE		 : out std_logic;
-		    --WB
-		    MemToReg : out std_logic;
-		    RegDst   : out std_logic;
-		    Jal      : out std_logic;
-		    RegWrite : out std_logic
+    component HWCU is
+        port (
+            OPCODE   : in std_logic_vector(5 downto 0);
+            FUNC     : in std_logic_vector(10 downto 0);
+            CLK, RST : in std_logic;
+            --CONTROL SIGNALS--
+            -- IF
+            -- ID
+            -- EX
+            ALUSrc    : out std_logic;
+            Jump      : out std_logic;
+            Branch    : out std_logic;
+            ALUOpcode : out std_logic_vector(3 downto 0);
+            --MEM
+            PCSrc : out std_logic;
+            WE    : out std_logic;
+            RE    : out std_logic;
+            --WB
+            MemToReg : out std_logic;
+            RegDst   : out std_logic;
+            Jal      : out std_logic;
+            RegWrite : out std_logic
 
-		);
-	end component;
+        );
+    end component;
 
     signal PC_OUT_i, ALU_OUT_i, DATA_OUT_i               : std_logic_vector(31 downto 0);
-	signal INSTR_i,INSTR_IF_ID_i                         : std_logic_vector(31 downto 0);
+    signal INSTR_i, INSTR_IF_ID_i                        : std_logic_vector(31 downto 0);
     signal DATA_IN_i                                     : std_logic_vector(31 downto 0);
     signal RegDst_i, RegWrite_i, PCSrc_i                 : std_logic;
     signal ALUSrc_i, MemToReg_i, Jump_i, Branch_i, Jal_i : std_logic;
 
-    signal ALUOpcode_i                                   : std_logic_vector(3 downto 0);
-    signal MemRead_i, MemWrite_i                         : std_logic;
+    signal ALUOpcode_i           : std_logic_vector(3 downto 0);
+    signal MemRead_i, MemWrite_i : std_logic;
 
 begin
     CPU_DP : DP port map(
@@ -93,7 +91,8 @@ begin
         MemToReg_i, Jump_i, Branch_i, Jal_i, PC_OUT_i, ALU_OUT_i, DATA_OUT_i, INSTR_IF_ID_i);
     CPU_INSTRMEM : INSTRMEM port map(PC_OUT_i, INSTR_i);
     CPU_DATAMEM  : DATAMEM port map(RST, MemRead_i, MemWrite_i, ALU_OUT_i, DATA_OUT_i, DATA_IN_i);
-	CPU_CU : HWCU port map(CLK => CLK, RST => RST, OPCODE => INSTR_IF_ID_i(31 downto 26), FUNC => INSTR_IF_ID_i(10 downto 0),
-							ALUSrc => ALUSrc_i, Jump => Jump_i, Branch => Branch_i, ALUOpcode => ALUOpcode_i, PCSrc => PCSrc_i,
-							MemToReg => MemToReg_i, RegDst => RegDst_i, Jal => Jal_i,RegWrite => RegWrite_i, WE => MemWrite_i, RE => MemRead_i);  
+    CPU_CU       : HWCU port map(
+        CLK => CLK, RST => RST, OPCODE => INSTR_IF_ID_i(31 downto 26), FUNC => INSTR_IF_ID_i(10 downto 0),
+        ALUSrc => ALUSrc_i, Jump => Jump_i, Branch => Branch_i, ALUOpcode => ALUOpcode_i, PCSrc => PCSrc_i,
+        MemToReg => MemToReg_i, RegDst => RegDst_i, Jal => Jal_i, RegWrite => RegWrite_i, WE => MemWrite_i, RE => MemRead_i);
 end struct;
