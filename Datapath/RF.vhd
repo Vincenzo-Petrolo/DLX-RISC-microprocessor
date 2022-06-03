@@ -30,7 +30,11 @@ begin
             DATA_OUT1 <= REGS(to_integer(unsigned(ADDR_RD1)));
             DATA_OUT2 <= REGS(to_integer(unsigned(ADDR_RD2)));
             if (WE = '1') then
-                REGS(to_integer(unsigned(ADDR_WR))) <= DATA_IN;
+				if (unsigned(ADDR_WR) = 0) then
+                	REGS(0) <= (others => '0');
+				else
+                	REGS(to_integer(unsigned(ADDR_WR))) <= DATA_IN;
+				end if;
             end if;
         elsif (RST = '1') then
             REGS <= (others => (others => '0'));

@@ -41,7 +41,7 @@ begin
                 RES_i <= std_logic_vector(to_unsigned(0, RES_i'length));
             end if;
         elsif (ALU_OP = ALU_SNE) then
-            if (OP1 >= OP2) then
+            if (OP1 /= OP2) then
                 RES_i <= std_logic_vector(to_unsigned(1, RES_i'length));
             else
                 RES_i <= std_logic_vector(to_unsigned(0, RES_i'length));
@@ -50,19 +50,25 @@ begin
             RES_i <= OP1 xor OP2;
         elsif (ALU_OP = ALU_SLL) then
             RES_i <= std_logic_vector(shift_left(unsigned(OP1),to_integer(unsigned(OP2))));
-        elsif (ALU_OP = ALU_SLL) then
+        elsif (ALU_OP = ALU_SRL) then
             RES_i <= std_logic_vector(shift_right(unsigned(OP1),to_integer(unsigned(OP2))));
+		elsif (ALU_OP = ALU_BEQZ) then
+            RES_i <= OP1;
+		elsif (ALU_OP = ALU_BNEZ) then
+            RES_i <= OP1;
         else
             RES_i <= std_logic_vector(to_unsigned(0, RES_i'length));
         end if;
     end process;
 
-    process (RES_i)
+    process (RES_i,ALU_OP)
     begin
-        if (RES_i = std_logic_vector(to_unsigned(0, RES_i'length))) then
+        if (RES_i = std_logic_vector(to_unsigned(0, RES_i'length)) and ALU_OP = ALU_BEQZ) then
             ZERO <= '1';
-        else
-            ZERO <= '0';
+        elsif(RES_i /= std_logic_vector(to_unsigned(0, RES_i'length)) and ALU_OP = ALU_BNEZ) then
+            ZERO <= '1';
+		else
+			ZERO <= '0';
         end if;
     end process;
 

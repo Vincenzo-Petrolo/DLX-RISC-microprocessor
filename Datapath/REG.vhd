@@ -16,12 +16,12 @@ architecture beh of REG is
 begin
     process (CLK)
     begin
-        if (rising_edge(CLK)) then
-            if (RST = '1') then
+		if(RST='1') then
                 O <= (others => '0');
-            else
+		elsif(RST='0') then
+			if(rising_edge(CLK)) then
                 O <= I;
-            end if;
-        end if;
+			end if;
+		end if;
     end process;
 end beh;

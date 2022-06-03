@@ -18,14 +18,14 @@ architecture beh of REGEN is
 begin
 	O <= curr_reg;
 	next_reg <= I;
-    process (CLK)
+    process (CLK,RST,EN)
     begin
-        if (rising_edge(CLK)) then
-            if (RST = '1') then
+		if (RST = '1') then
                 curr_reg <= (others => '0');
-            elsif(EN = '1') then
+		elsif(RST='0') then
+        	if (rising_edge(CLK) and EN = '1') then    
                 curr_reg <= next_reg;
-			else
+			elsif(EN='0') then
 				curr_reg <= curr_reg;
             end if;
         end if;

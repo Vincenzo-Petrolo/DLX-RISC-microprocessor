@@ -4,7 +4,6 @@ use IEEE.numeric_std.all;
 
 entity DATAMEM is
     port (
-        CLK      : in std_logic;
         RST      : in std_logic;
         RE       : in std_logic;
         WE       : in std_logic;
@@ -22,20 +21,20 @@ architecture beh of DATAMEM is
 
 begin
 
-    RW : process (CLK)
+    RW : process(RST,MEM,ADDR,DATA_IN,RE,WE)
     begin
-        if (rising_edge(CLK)) then
-            if (RST = '0') then
-                if (RE = '1') then
-                    DATA_OUT <= MEM(to_integer(unsigned(ADDR)));
-                end if;
-                if (WE = '1') then
-                    MEM(to_integer(unsigned(ADDR))) <= DATA_IN;
-                end if;
-            elsif (RST = '1') then
-                MEM <= (others => (others => '0'));
+
+        if (RST = '0') then
+            if (RE = '1') then
+                DATA_OUT <= MEM(to_integer(unsigned(ADDR)));
             end if;
+            if (WE = '1') then
+                MEM(to_integer(unsigned(ADDR))) <= DATA_IN;
+            end if;
+        elsif (RST = '1') then
+            MEM <= (others => (others => '0'));
         end if;
+
     end process RW;
 
 end beh;

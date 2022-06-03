@@ -13,22 +13,19 @@ package cw_flags is
     -- Select Program counter source
     constant SEL_PCSRC_0 : std_logic_vector(CW_IF_LEN - 1 downto 0) := "00";
     constant SEL_PCSRC_1 : std_logic_vector(CW_IF_LEN - 1 downto 0) := "10";
-    -- Enable the pipeline register
-    constant EN_IF_ID_0 : std_logic_vector(CW_IF_LEN - 1 downto 0) := "00";
-    constant EN_IF_ID_1 : std_logic_vector(CW_IF_LEN - 1 downto 0) := "01";
+    -- Select Program counter source
+    constant EN_PC_0 : std_logic_vector(CW_IF_LEN - 1 downto 0) := "00";
+    constant EN_PC_1 : std_logic_vector(CW_IF_LEN - 1 downto 0) := "01";
     -- End of IF stage
 
     -- ID stage has control word size of 2
-    constant CW_ID_LEN : integer := 3;
+    constant CW_ID_LEN : integer := 2;
     -- Select the destination register
-    constant SEL_REGDST_0 : std_logic_vector(CW_ID_LEN - 1 downto 0) := "000";
-    constant SEL_REGDST_1 : std_logic_vector(CW_ID_LEN - 1 downto 0) := "100";
-    -- Select R31 if JAL
-    constant SEL_R31_0 : std_logic_vector(CW_ID_LEN - 1 downto 0) := "000";
-    constant SEL_R31_1 : std_logic_vector(CW_ID_LEN - 1 downto 0) := "010";
+    constant SEL_REGDST_0 : std_logic_vector(CW_ID_LEN - 1 downto 0) := "00";
+    constant SEL_REGDST_1 : std_logic_vector(CW_ID_LEN - 1 downto 0) := "10";
     -- Enable the Register file for writing
-    constant EN_REGWRITE_0 : std_logic_vector(CW_ID_LEN - 1 downto 0) := "000";
-    constant EN_REGWRITE_1 : std_logic_vector(CW_ID_LEN - 1 downto 0) := "001";
+    constant EN_REGWRITE_0 : std_logic_vector(CW_ID_LEN - 1 downto 0) := "00";
+    constant EN_REGWRITE_1 : std_logic_vector(CW_ID_LEN - 1 downto 0) := "01";
     -- End of ID stage
 
     -- EX mem stage has control word size of 3
@@ -45,7 +42,15 @@ package cw_flags is
     constant SEL_ALUSRC_1 : std_logic_vector(CW_EX_LEN - 1 downto 0) := "001";
     -- End of EX stage
 
-    -- MEM stage has control word size of 0
+    -- MEM stage has control word size of 1
+	constant CW_MEM_LEN : integer := 2;
+
+	-- Enable writing on memory	
+    constant WE_0 : std_logic_vector(CW_MEM_LEN - 1 downto 0) := "00";
+    constant WE_1 : std_logic_vector(CW_MEM_LEN - 1 downto 0) := "01";
+	-- Enable reading on memory
+    constant RE_0 : std_logic_vector(CW_MEM_LEN - 1 downto 0) := "00";
+    constant RE_1 : std_logic_vector(CW_MEM_LEN - 1 downto 0) := "10";
     -- End of MEM stage
 
     -- WB stage has control word size of 
@@ -58,6 +63,5 @@ package cw_flags is
     constant SEL_JAL_1 : std_logic_vector(CW_WB_LEN - 1 downto 0) := "01";
     -- End of WB stage
 
-    constant TEST : std_logic_vector(8 downto 0) := "0000" & "00000";
 
 end cw_flags;

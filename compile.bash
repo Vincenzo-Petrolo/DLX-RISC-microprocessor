@@ -12,3 +12,4 @@ vcom ControlUnit/cw_flags.vhd
 vcom ControlUnit/op_func.vhd
 vcom ControlUnit/HWCU.vhd
 vcom Datapath/CPU.vhd
+vcom Datapath/TB_CPU.vhd
