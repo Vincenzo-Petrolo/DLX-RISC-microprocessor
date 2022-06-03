@@ -4,12 +4,12 @@ use ieee.std_logic_1164.all;
 package aluOpCodes is
 
     constant ALU_OPCODE_LEN : integer := 4;
--- Arithmetical operations
+    -- Arithmetical operations
     constant ALU_ADD : std_logic_vector(ALU_OPCODE_LEN - 1 downto 0) := "0000";
     constant ALU_SUB : std_logic_vector(ALU_OPCODE_LEN - 1 downto 0) := "0001";
     constant ALU_SLE : std_logic_vector(ALU_OPCODE_LEN - 1 downto 0) := "0010";
     constant ALU_SGE : std_logic_vector(ALU_OPCODE_LEN - 1 downto 0) := "0011";
--- Logical operations
+    -- Logical operations
     constant ALU_AND : std_logic_vector(ALU_OPCODE_LEN - 1 downto 0) := "0100";
     constant ALU_OR  : std_logic_vector(ALU_OPCODE_LEN - 1 downto 0) := "0101";
     constant ALU_XOR : std_logic_vector(ALU_OPCODE_LEN - 1 downto 0) := "0110";

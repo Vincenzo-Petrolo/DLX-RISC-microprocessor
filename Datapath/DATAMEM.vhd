@@ -21,7 +21,7 @@ architecture beh of DATAMEM is
 
 begin
 
-    RW : process(RST,MEM,ADDR,DATA_IN,RE,WE)
+    RW : process (RST, MEM, ADDR, DATA_IN, RE, WE)
     begin
 
         if (RST = '0') then

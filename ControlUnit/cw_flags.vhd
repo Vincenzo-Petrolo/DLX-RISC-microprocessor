@@ -43,12 +43,12 @@ package cw_flags is
     -- End of EX stage
 
     -- MEM stage has control word size of 1
-	constant CW_MEM_LEN : integer := 2;
+    constant CW_MEM_LEN : integer := 2;
 
-	-- Enable writing on memory	
+    -- Enable writing on memory	
     constant WE_0 : std_logic_vector(CW_MEM_LEN - 1 downto 0) := "00";
     constant WE_1 : std_logic_vector(CW_MEM_LEN - 1 downto 0) := "01";
-	-- Enable reading on memory
+    -- Enable reading on memory
     constant RE_0 : std_logic_vector(CW_MEM_LEN - 1 downto 0) := "00";
     constant RE_1 : std_logic_vector(CW_MEM_LEN - 1 downto 0) := "10";
     -- End of MEM stage
@@ -62,6 +62,4 @@ package cw_flags is
     constant SEL_JAL_0 : std_logic_vector(CW_WB_LEN - 1 downto 0) := "00";
     constant SEL_JAL_1 : std_logic_vector(CW_WB_LEN - 1 downto 0) := "01";
     -- End of WB stage
-
-
 end cw_flags;
