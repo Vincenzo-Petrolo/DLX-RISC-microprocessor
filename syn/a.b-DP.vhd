@@ -11,7 +11,6 @@ entity DP is
         --CONTROL SIGNALS--
         RegDst    : in std_logic;
         RegWrite  : in std_logic;
-        PCSrc     : in std_logic;
         ALUSrc    : in std_logic;
         ALUOpcode : in std_logic_vector(3 downto 0);
         MemToReg  : in std_logic;

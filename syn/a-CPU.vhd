@@ -18,7 +18,6 @@ architecture struct of CPU is
             --CONTROL SIGNALS--
             RegDst    : in std_logic;
             RegWrite  : in std_logic;
-            PCSrc     : in std_logic;
             ALUSrc    : in std_logic;
             ALUOpcode : in std_logic_vector(3 downto 0);
             MemToReg  : in std_logic;
@@ -64,7 +63,6 @@ architecture struct of CPU is
             Branch    : out std_logic;
             ALUOpcode : out std_logic_vector(3 downto 0);
             --MEM
-            PCSrc : out std_logic;
             WE    : out std_logic;
             RE    : out std_logic;
             --WB
@@ -79,7 +77,7 @@ architecture struct of CPU is
     signal PC_OUT_i, ALU_OUT_i, DATA_OUT_i               : std_logic_vector(31 downto 0);
     signal INSTR_i, INSTR_IF_ID_i                        : std_logic_vector(31 downto 0);
     signal DATA_IN_i                                     : std_logic_vector(31 downto 0);
-    signal RegDst_i, RegWrite_i, PCSrc_i                 : std_logic;
+    signal RegDst_i, RegWrite_i                 : std_logic;
     signal ALUSrc_i, MemToReg_i, Jump_i, Branch_i, Jal_i : std_logic;
 
     signal ALUOpcode_i           : std_logic_vector(3 downto 0);
@@ -87,12 +85,12 @@ architecture struct of CPU is
 
 begin
     CPU_DP : DP port map(
-        CLK, RST, INSTR_i, DATA_IN_i, RegDst_i, RegWrite_i, PCSrc_i, ALUSrc_i, ALUOpcode_i,
+        CLK, RST, INSTR_i, DATA_IN_i, RegDst_i, RegWrite_i, ALUSrc_i, ALUOpcode_i,
         MemToReg_i, Jump_i, Branch_i, Jal_i, PC_OUT_i, ALU_OUT_i, DATA_OUT_i, INSTR_IF_ID_i);
     CPU_INSTRMEM : INSTRMEM port map(PC_OUT_i, INSTR_i);
     CPU_DATAMEM  : DATAMEM port map(RST, MemRead_i, MemWrite_i, ALU_OUT_i, DATA_OUT_i, DATA_IN_i);
     CPU_CU       : HWCU port map(
         CLK => CLK, RST => RST, OPCODE => INSTR_IF_ID_i(31 downto 26), FUNC => INSTR_IF_ID_i(10 downto 0),
-        ALUSrc => ALUSrc_i, Jump => Jump_i, Branch => Branch_i, ALUOpcode => ALUOpcode_i, PCSrc => PCSrc_i,
+        ALUSrc => ALUSrc_i, Jump => Jump_i, Branch => Branch_i, ALUOpcode => ALUOpcode_i,
         MemToReg => MemToReg_i, RegDst => RegDst_i, Jal => Jal_i, RegWrite => RegWrite_i, WE => MemWrite_i, RE => MemRead_i);
 end struct;

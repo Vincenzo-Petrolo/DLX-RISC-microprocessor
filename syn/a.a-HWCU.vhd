@@ -19,9 +19,8 @@ entity HWCU is
         Branch    : out std_logic;
         ALUOpcode : out std_logic_vector(3 downto 0);
         --MEM
-        PCSrc : out std_logic;
-        WE    : out std_logic;
-        RE    : out std_logic;
+        WE : out std_logic;
+        RE : out std_logic;
         --WB
         MemToReg : out std_logic;
         RegDst   : out std_logic;
@@ -38,373 +37,311 @@ architecture beh of HWCU is
     -- Declare the LUT of the hardwired CU
     signal lookup_table : lut_t := (
         --RTYPE Mapping 0x00
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_1 or EN_REGWRITE_1) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_0) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --PLACEHOLDER because OPCODE 0x01 is missing 0x01
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --J 0x2
-        std_logic_vector(SEL_PCSRC_1) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_1 or SEL_ALUSRC_0) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --JAL 0x3
-        std_logic_vector(SEL_PCSRC_1) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_1) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_1 or SEL_ALUSRC_0) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_1),         --WB
         --BEQZ 0x4
-        std_logic_vector(SEL_PCSRC_1) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_1 or JUMP_0 or SEL_ALUSRC_0) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --BNEZ, ALU receives ALUOPCDOE which tells it to check against != 0 but it uses ZERO flag signal 0x5
-        std_logic_vector(SEL_PCSRC_1) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_1 or JUMP_0 or SEL_ALUSRC_0) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --BFPT 0x6
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --BFPF 0x7
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --ADDI 0x8
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_1) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --ADDUI 0x9
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --SUBI 0xa
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_1) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --SUBUI 0xb
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --ANDI 0xc
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_1) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --ORI 0xd
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_1) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --XORI 0xe
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_1) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --LHI 0xf
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --RFE 0x10
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --TRAP 0x11
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --JR 0x12
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --JALR 0x13
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --SLLI 0x14
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_1) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --NOP 0x15
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --SRLI 0x16
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_1) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --SRAI 0x17
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --SEQI 0x18
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --SNEI 0x19
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_1) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --SLTI 0x1a
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --SGTI 0x1b
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --SLEI 0x1c
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_1) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --SGEI 0x1d
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_1) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --PLACEHOLDER because OPCODE 0x1e is missing
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --PLACEHOLDER because OPCODE 0x1f is missing
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --LB 0x20
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --LH 0x21
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --PLACEHOLDER because OPCODE 0x22 is missing 
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --LW 0x23
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_1) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_1) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_1 or SEL_JAL_0),         --WB
         --LBU 0x24
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --LHU 0x25
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --LF 0x26
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --LD 0x27
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --SB 0x28
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --SH 0x29
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --PLACEHOLDER because OPCODE 0x2a is missing 
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --SW 0x2b
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_1 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --PLACEHOLDER because OPCODE 0x2c is missing
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --PLACEHOLDER because OPCODE 0x2d is missing
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --SF 0x2e
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --SD 0x2f
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --PLACEHOLDER because OPCODE 0x30 is missing
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --PLACEHOLDER because OPCODE 0x31 is missing
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --PLACEHOLDER because OPCODE 0x32 is missing
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --PLACEHOLDER because OPCODE 0x33 is missing
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --PLACEHOLDER because OPCODE 0x34 is missing
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --PLACEHOLDER because OPCODE 0x35 is missing
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --PLACEHOLDER because OPCODE 0x36 is missing
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --PLACEHOLDER because OPCODE 0x37 is missing
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --ITLB 0x38
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --PLACEHOLDER because OPCODE 0x39 is missing
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --SLTUI 0x3a
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --SGTUI 0x3b
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --SLEUI 0x3c
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
         std_logic_vector(SEL_MEMTOREG_0 or SEL_JAL_0),         --WB
         --SGEUI 0x3d
-        std_logic_vector(SEL_PCSRC_0) &                        --IF
         std_logic_vector(SEL_REGDST_0 or EN_REGWRITE_0) &      --ID
         std_logic_vector(BRANCH_0 or JUMP_0 or SEL_ALUSRC_1) & --EX
         std_logic_vector(WE_0 or RE_0) &                       --MEM
@@ -413,7 +350,7 @@ architecture beh of HWCU is
     -- Registers for pipeline
     signal curr_EX, next_EX                                           : std_logic_vector(2 downto 0);
     signal curr_aluopcode, next_aluopcode                             : std_logic_vector(ALU_OPCODE_LEN - 1 downto 0);
-    signal curr_MEM1, next_MEM1, curr_MEM2, next_MEM2                 : std_logic_vector(2 downto 0);
+    signal curr_MEM1, next_MEM1, curr_MEM2, next_MEM2                 : std_logic_vector(1 downto 0);
     signal curr_WB1, next_WB1, curr_WB2, next_WB2, curr_WB3, next_WB3 : std_logic_vector(2 downto 0);
     -- General wiring
     signal wire_lut_out : std_logic_vector(CW_IF_LEN + CW_ID_LEN + CW_EX_LEN + CW_MEM_LEN + CW_WB_LEN - 1 downto 0);
@@ -446,11 +383,9 @@ begin
     -- takes care of OPCODE and the wiring of cw* registers
     cwreg_pipeline : process (OPCODE, lookup_table, wire_lut_out, curr_MEM1, curr_WB1, curr_WB2, curr_WB3, curr_EX, curr_MEM2)
     begin
-        report "VALUE FOR CONVERTED OPCODE IS " & integer'image(to_integer(unsigned(OPCODE)));
         -- FIRST STAGE OF PIPELINE (Right out the LUT)
         -- Map the first bits into the MEM pipeline register
-        next_MEM1 <= wire_lut_out(CW_MEM_LEN + CW_WB_LEN - 1 downto CW_WB_LEN) &
-            wire_lut_out(CW_IF_LEN + CW_ID_LEN + CW_EX_LEN + CW_MEM_LEN + CW_WB_LEN - 1 downto CW_IF_LEN + CW_ID_LEN + CW_EX_LEN + CW_MEM_LEN + CW_WB_LEN - 1);
+        next_MEM1 <= wire_lut_out(CW_MEM_LEN + CW_WB_LEN - 1 downto CW_WB_LEN);
         -- Map the other bits into the EX register of the pipeline
         next_EX <= wire_lut_out(CW_EX_LEN + CW_MEM_LEN + CW_WB_LEN - 1 downto CW_MEM_LEN + CW_WB_LEN);
         -- Map the remaining bits in the WB
@@ -546,11 +481,10 @@ begin
     Jump      <= curr_EX(1);
     Branch    <= curr_EX(2);
     ALUOpcode <= curr_aluopcode;
-    PCSrc     <= curr_MEM2(0);
     RegDst    <= wire_lut_out(CW_ID_LEN + CW_EX_LEN + CW_MEM_LEN + CW_WB_LEN - 1);
     Regwrite  <= curr_WB3(2);
     MemToReg  <= curr_WB3(1);
     Jal       <= curr_WB3(0);
-    WE        <= curr_MEM2(1);
-    RE        <= curr_MEM2(2);
+    WE        <= curr_MEM2(0);
+    RE        <= curr_MEM2(1);
 end architecture; -- arch
