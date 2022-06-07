@@ -7,15 +7,15 @@ Report : timing
         -max_paths 1
 Design : CPU
 Version: F-2011.09-SP3
-Date   : Sat Jun  4 15:37:26 2022
+Date   : Wed Jun  8 00:43:00 2022
 ****************************************
 
 Operating Conditions: typical   Library: NangateOpenCellLibrary
 Wire Load Model Mode: top
 
-  Startpoint: CPU_DP/RF_DATA_OUT2_REG_ID_EX/O_reg[4]
+  Startpoint: CPU_DP/RF_DATA_OUT2_REG_ID_EX/O_reg[0]
               (rising edge-triggered flip-flop clocked by CLK)
-  Endpoint: CPU_DP/ALU_OUT_REG_EX_MEM/O_reg[0]
+  Endpoint: CPU_DP/ALU_OUT_REG_EX_MEM/O_reg[30]
             (rising edge-triggered flip-flop clocked by CLK)
   Path Group: CLK
   Path Type: max
@@ -28,91 +28,84 @@ Wire Load Model Mode: top
   --------------------------------------------------------------------------
   clock CLK (rise edge)                                   0.00       0.00
   clock network delay (ideal)                             0.00       0.00
-  CPU_DP/RF_DATA_OUT2_REG_ID_EX/O_reg[4]/CK (DFFR_X1)     0.00       0.00 r
-  CPU_DP/RF_DATA_OUT2_REG_ID_EX/O_reg[4]/Q (DFFR_X1)      0.10       0.10 r
-  CPU_DP/RF_DATA_OUT2_REG_ID_EX/O[4] (REG_BITS32_8)       0.00       0.10 r
-  CPU_DP/ALU_MUX/IN0[4] (MUX21_NBIT32_5)                  0.00       0.10 r
-  CPU_DP/ALU_MUX/U16/Z (MUX2_X2)                          0.06       0.17 r
-  CPU_DP/ALU_MUX/O[4] (MUX21_NBIT32_5)                    0.00       0.17 r
-  CPU_DP/ALU_DP/OP2[4] (ALU)                              0.00       0.17 r
-  CPU_DP/ALU_DP/r131/B[4] (ALU_DW01_cmp6_0)               0.00       0.17 r
-  CPU_DP/ALU_DP/r131/U158/ZN (INV_X1)                     0.03       0.20 f
-  CPU_DP/ALU_DP/r131/U21/ZN (OR2_X1)                      0.06       0.26 f
-  CPU_DP/ALU_DP/r131/U114/ZN (AND2_X1)                    0.05       0.30 f
-  CPU_DP/ALU_DP/r131/U140/ZN (AOI21_X1)                   0.05       0.35 r
-  CPU_DP/ALU_DP/r131/U141/ZN (OAI211_X1)                  0.05       0.40 f
-  CPU_DP/ALU_DP/r131/U151/ZN (OAI21_X1)                   0.05       0.44 r
-  CPU_DP/ALU_DP/r131/U150/ZN (AOI21_X1)                   0.03       0.48 f
-  CPU_DP/ALU_DP/r131/U113/ZN (NAND3_X1)                   0.03       0.51 r
-  CPU_DP/ALU_DP/r131/U59/ZN (NAND2_X1)                    0.03       0.54 f
-  CPU_DP/ALU_DP/r131/U58/ZN (OAI21_X1)                    0.05       0.58 r
-  CPU_DP/ALU_DP/r131/U109/ZN (NAND3_X1)                   0.04       0.62 f
-  CPU_DP/ALU_DP/r131/U63/ZN (AOI21_X1)                    0.04       0.67 r
-  CPU_DP/ALU_DP/r131/U75/ZN (OAI21_X1)                    0.03       0.70 f
-  CPU_DP/ALU_DP/r131/U74/ZN (INV_X1)                      0.03       0.73 r
-  CPU_DP/ALU_DP/r131/U64/ZN (AND2_X1)                     0.04       0.77 r
-  CPU_DP/ALU_DP/r131/U78/ZN (AOI21_X1)                    0.03       0.81 f
-  CPU_DP/ALU_DP/r131/U79/ZN (NOR2_X1)                     0.04       0.85 r
-  CPU_DP/ALU_DP/r131/U242/ZN (NAND2_X1)                   0.03       0.88 f
-  CPU_DP/ALU_DP/r131/NE (ALU_DW01_cmp6_0)                 0.00       0.88 f
-  CPU_DP/ALU_DP/U197/ZN (NAND2_X1)                        0.03       0.91 r
-  CPU_DP/ALU_DP/U555/ZN (NAND3_X1)                        0.03       0.95 f
-  CPU_DP/ALU_DP/RES[0] (ALU)                              0.00       0.95 f
-  CPU_DP/ALU_OUT_REG_EX_MEM/I[0] (REG_BITS32_5)           0.00       0.95 f
-  CPU_DP/ALU_OUT_REG_EX_MEM/O_reg[0]/D (DFFR_X1)          0.01       0.96 f
-  data arrival time                                                  0.96
+  CPU_DP/RF_DATA_OUT2_REG_ID_EX/O_reg[0]/CK (DFFR_X1)     0.00       0.00 r
+  CPU_DP/RF_DATA_OUT2_REG_ID_EX/O_reg[0]/Q (DFFR_X1)      0.09       0.09 f
+  CPU_DP/RF_DATA_OUT2_REG_ID_EX/O[0] (REG_BITS32_7)       0.00       0.09 f
+  CPU_DP/ALU_MUX/IN0[0] (MUX21_NBIT32_5)                  0.00       0.09 f
+  CPU_DP/ALU_MUX/U12/Z (MUX2_X2)                          0.08       0.17 f
+  CPU_DP/ALU_MUX/O[0] (MUX21_NBIT32_5)                    0.00       0.17 f
+  CPU_DP/ALU_DP/OP2[0] (ALU)                              0.00       0.17 f
+  CPU_DP/ALU_DP/ADDER/B[0] (adder_generic_NBIT32_NBIT_PER_BLOCK16)
+                                                          0.00       0.17 f
+  CPU_DP/ALU_DP/ADDER/U44/ZN (XNOR2_X1)                   0.08       0.25 f
+  CPU_DP/ALU_DP/ADDER/carry/B[0] (CLA_NBIT32_NBIT_PER_BLOCK16)
+                                                          0.00       0.25 f
+  CPU_DP/ALU_DP/ADDER/carry/PG_0_0/bi (pgb_0)             0.00       0.25 f
+  CPU_DP/ALU_DP/ADDER/carry/PG_0_0/U2/Z (XOR2_X1)         0.08       0.33 f
+  CPU_DP/ALU_DP/ADDER/carry/PG_0_0/p (pgb_0)              0.00       0.33 f
+  CPU_DP/ALU_DP/ADDER/carry/G_0_0/Pik (G_0)               0.00       0.33 f
+  CPU_DP/ALU_DP/ADDER/carry/G_0_0/U2/ZN (AOI21_X1)        0.04       0.37 r
+  CPU_DP/ALU_DP/ADDER/carry/G_0_0/U1/ZN (INV_X1)          0.03       0.40 f
+  CPU_DP/ALU_DP/ADDER/carry/G_0_0/Gij (G_0)               0.00       0.40 f
+  CPU_DP/ALU_DP/ADDER/carry/INITIAL_G_i_1/Gdkj (G_5)      0.00       0.40 f
+  CPU_DP/ALU_DP/ADDER/carry/INITIAL_G_i_1/U2/ZN (AOI21_X1)
+                                                          0.04       0.44 r
+  CPU_DP/ALU_DP/ADDER/carry/INITIAL_G_i_1/U1/ZN (INV_X1)
+                                                          0.03       0.47 f
+  CPU_DP/ALU_DP/ADDER/carry/INITIAL_G_i_1/Gij (G_5)       0.00       0.47 f
+  CPU_DP/ALU_DP/ADDER/carry/INITIAL_G_i_2/Gdkj (G_4)      0.00       0.47 f
+  CPU_DP/ALU_DP/ADDER/carry/INITIAL_G_i_2/U2/ZN (AOI21_X1)
+                                                          0.04       0.51 r
+  CPU_DP/ALU_DP/ADDER/carry/INITIAL_G_i_2/U1/ZN (INV_X1)
+                                                          0.03       0.53 f
+  CPU_DP/ALU_DP/ADDER/carry/INITIAL_G_i_2/Gij (G_4)       0.00       0.53 f
+  CPU_DP/ALU_DP/ADDER/carry/INITIAL_G_i_3/Gdkj (G_3)      0.00       0.53 f
+  CPU_DP/ALU_DP/ADDER/carry/INITIAL_G_i_3/U2/ZN (AOI21_X1)
+                                                          0.04       0.57 r
+  CPU_DP/ALU_DP/ADDER/carry/INITIAL_G_i_3/U1/ZN (INV_X1)
+                                                          0.03       0.60 f
+  CPU_DP/ALU_DP/ADDER/carry/INITIAL_G_i_3/Gij (G_3)       0.00       0.60 f
+  CPU_DP/ALU_DP/ADDER/carry/INITIAL_G_i_4/Gdkj (G_2)      0.00       0.60 f
+  CPU_DP/ALU_DP/ADDER/carry/INITIAL_G_i_4/U3/ZN (NAND2_X1)
+                                                          0.03       0.63 r
+  CPU_DP/ALU_DP/ADDER/carry/INITIAL_G_i_4/U2/ZN (NAND2_X1)
+                                                          0.03       0.66 f
+  CPU_DP/ALU_DP/ADDER/carry/INITIAL_G_i_4/U1/Z (BUF_X4)
+                                                          0.07       0.73 f
+  CPU_DP/ALU_DP/ADDER/carry/INITIAL_G_i_4/Gij (G_2)       0.00       0.73 f
+  CPU_DP/ALU_DP/ADDER/carry/Co[0] (CLA_NBIT32_NBIT_PER_BLOCK16)
+                                                          0.00       0.73 f
+  CPU_DP/ALU_DP/ADDER/sum/Ci[1] (SUM_GENERATOR_GENERIC_NBIT_PER_BLOCK16_NBLOCKS2)
+                                                          0.00       0.73 f
+  CPU_DP/ALU_DP/ADDER/sum/CARRYSELBLOCK_i_2/C_IN (CARRY_SELECT_BLOCK_GENERIC_NBIT16_1)
+                                                          0.00       0.73 f
+  CPU_DP/ALU_DP/ADDER/sum/CARRYSELBLOCK_i_2/MUX/SEL (MUX21_GENERIC_NBIT16_1)
+                                                          0.00       0.73 f
+  CPU_DP/ALU_DP/ADDER/sum/CARRYSELBLOCK_i_2/MUX/U31/Z (MUX2_X1)
+                                                          0.09       0.82 f
+  CPU_DP/ALU_DP/ADDER/sum/CARRYSELBLOCK_i_2/MUX/Y[14] (MUX21_GENERIC_NBIT16_1)
+                                                          0.00       0.82 f
+  CPU_DP/ALU_DP/ADDER/sum/CARRYSELBLOCK_i_2/S[14] (CARRY_SELECT_BLOCK_GENERIC_NBIT16_1)
+                                                          0.00       0.82 f
+  CPU_DP/ALU_DP/ADDER/sum/S[30] (SUM_GENERATOR_GENERIC_NBIT_PER_BLOCK16_NBLOCKS2)
+                                                          0.00       0.82 f
+  CPU_DP/ALU_DP/ADDER/S[30] (adder_generic_NBIT32_NBIT_PER_BLOCK16)
+                                                          0.00       0.82 f
+  CPU_DP/ALU_DP/U109/ZN (AOI22_X1)                        0.06       0.88 r
+  CPU_DP/ALU_DP/U110/ZN (OAI221_X1)                       0.06       0.93 f
+  CPU_DP/ALU_DP/RES[30] (ALU)                             0.00       0.93 f
+  CPU_DP/ALU_OUT_REG_EX_MEM/I[30] (REG_BITS32_5)          0.00       0.93 f
+  CPU_DP/ALU_OUT_REG_EX_MEM/O_reg[30]/D (DFFR_X1)         0.01       0.95 f
+  data arrival time                                                  0.95
 
   clock CLK (rise edge)                                   1.00       1.00
   clock network delay (ideal)                             0.00       1.00
-  CPU_DP/ALU_OUT_REG_EX_MEM/O_reg[0]/CK (DFFR_X1)         0.00       1.00 r
-  library setup time                                     -0.04       0.96
-  data required time                                                 0.96
+  CPU_DP/ALU_OUT_REG_EX_MEM/O_reg[30]/CK (DFFR_X1)        0.00       1.00 r
+  library setup time                                     -0.05       0.95
+  data required time                                                 0.95
   --------------------------------------------------------------------------
-  data required time                                                 0.96
-  data arrival time                                                 -0.96
-  --------------------------------------------------------------------------
-  slack (MET)                                                        0.00
-
-
-  Startpoint: CPU_DP/PC/O[9]
-              (internal path startpoint)
-  Endpoint: CPU_DP/PC_ADDER_REG_IF_ID/I[19]
-            (internal path endpoint)
-  Path Group: default
-  Path Type: max
-
-  Des/Clust/Port     Wire Load Model       Library
-  ------------------------------------------------
-  CPU                5K_hvratio_1_4        NangateOpenCellLibrary
-
-  Point                                                   Incr       Path
-  --------------------------------------------------------------------------
-  input external delay                                    0.00       0.00 r
-  CPU_DP/PC/O[9] (REG_BITS32_0)                           0.00       0.00 r
-  CPU_DP/PC_ADDER/A[9] (ADDER_0)                          0.00       0.00 r
-  CPU_DP/PC_ADDER/add_16/A[9] (ADDER_0_DW01_add_2)        0.00       0.00 r
-  CPU_DP/PC_ADDER/add_16/U118/ZN (OR2_X1)                 0.04       0.04 r
-  CPU_DP/PC_ADDER/add_16/U75/ZN (NAND4_X1)                0.06       0.10 f
-  CPU_DP/PC_ADDER/add_16/U60/ZN (NOR2_X1)                 0.05       0.14 r
-  CPU_DP/PC_ADDER/add_16/U63/ZN (NAND4_X1)                0.05       0.20 f
-  CPU_DP/PC_ADDER/add_16/U65/ZN (NAND2_X1)                0.05       0.24 r
-  CPU_DP/PC_ADDER/add_16/U98/ZN (AND2_X1)                 0.05       0.29 r
-  CPU_DP/PC_ADDER/add_16/U109/ZN (NOR2_X1)                0.03       0.31 f
-  CPU_DP/PC_ADDER/add_16/U104/ZN (OAI21_X1)               0.04       0.36 r
-  CPU_DP/PC_ADDER/add_16/U105/ZN (INV_X1)                 0.03       0.38 f
-  CPU_DP/PC_ADDER/add_16/U120/ZN (OAI21_X1)               0.05       0.43 r
-  CPU_DP/PC_ADDER/add_16/U121/ZN (XNOR2_X1)               0.06       0.49 r
-  CPU_DP/PC_ADDER/add_16/SUM[19] (ADDER_0_DW01_add_2)     0.00       0.49 r
-  CPU_DP/PC_ADDER/S[19] (ADDER_0)                         0.00       0.49 r
-  CPU_DP/PC_ADDER_REG_IF_ID/I[19] (REG_BITS32_13)         0.00       0.49 r
-  data arrival time                                                  0.49
-
-  max_delay                                               0.49       0.49
-  output external delay                                   0.00       0.49
-  data required time                                                 0.49
-  --------------------------------------------------------------------------
-  data required time                                                 0.49
-  data arrival time                                                 -0.49
+  data required time                                                 0.95
+  data arrival time                                                 -0.95
   --------------------------------------------------------------------------
   slack (MET)                                                        0.00
 

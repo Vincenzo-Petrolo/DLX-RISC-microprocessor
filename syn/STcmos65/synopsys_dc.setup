@@ -1,0 +1,16 @@
+set snps [getenv "SYNOPSYS"]
+set technology "STcmos65"
+set search_path ""
+lappend search_path "${snps}/libraries/syn"
+lappend search_path "./tech/${technology}"
+
+set link_library ""
+lappend link_library "CORE65LPSVT_bc_1.30V_m40C.db"
+lappend link_library "CORE65LPSVT_wc_1.10V_125C.db"
+lappend link_library "CORE65LPSVT_nom_1.20V_25C.db"
+lappend link_library "CORE65LPLVT_nom_1.20V_25C.db"
+lappend link_library "CORE65LPHVT_nom_1.20V_25C.db"
+
+set target_library ""
+lappend target_library [lindex $link_library 3]
+#lappend target_library [lindex $link_library 4]

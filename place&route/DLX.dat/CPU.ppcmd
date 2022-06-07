@@ -13,7 +13,7 @@
 # END_PPCMD 1 
 
 # PPCMD 2 
-# addStripe -nets {vdd gnd} -layer metal10 -direction vertical -width 0.8 -spacing 0.8 -set_to_set_distance 20 -start_from left -start_offset 15 -switch_layer_over_obs false -max_same_layer_jog_length 2 -padcore_ring_top_layer_limit metal10 -padcore_ring_bottom_layer_limit metal1 -block_ring_top_layer_limit metal10 -block_ring_bottom_layer_limit metal1 -use_wire_group 0 -snap_wire_center_to_grid None -skip_via_on_pin {  standardcell } -skip_via_on_wire_shape {  noshape } -stacked_via_bottom_layer metal1 -stacked_via_top_layer metal10 -via_using_exact_crossover_size false
+# addStripe -nets {gnd vdd} -layer metal10 -direction vertical -width 0.8 -spacing 0.8 -set_to_set_distance 20 -start_from left -start_offset 15 -switch_layer_over_obs false -max_same_layer_jog_length 2 -padcore_ring_top_layer_limit metal10 -padcore_ring_bottom_layer_limit metal1 -block_ring_top_layer_limit metal10 -block_ring_bottom_layer_limit metal1 -use_wire_group 0 -snap_wire_center_to_grid None -skip_via_on_pin {  standardcell } -skip_via_on_wire_shape {  noshape } -stacked_via_bottom_layer metal1 -stacked_via_top_layer metal10 -via_using_exact_crossover_size false
 # 4 
 # 2 
 # 1 
@@ -21,12 +21,12 @@
 # 0 
 # 2 
 # BOX_LIST 
-# 2730 2640 283710 281920 0 
-# 5930 5840 280510 278720 0 
+# 2730 2640 284470 281920 0 
+# 5930 5840 281270 278720 0 
 # END_BOX_LIST 
 # NET_INFO_LIST 
-# gnd 1600 10 0 43460 277780 40000 0 0 
-# vdd 1600 10 0 40260 277780 40000 0 0 
+# vdd 1600 10 0 43460 278540 40000 0 0 
+# gnd 1600 10 0 40260 278540 40000 0 0 
 # END_NET_INFO_LIST 
 # END_PPCMD 2 
 
@@ -57,19 +57,19 @@
 # NET_INFO_LIST 
 # vdd 1600 9 1 0 0 0 0 0 
 # RING_PT_INFO_LIST 
-# 144020 3440 144020 282720 
+# 144400 3440 144400 282720 
 # END_RING_PT_INFO_LIST 
 # vdd 1600 10 1 0 0 0 0 0 
 # RING_PT_INFO_LIST 
-# 3530 143080 284510 143080 
+# 3530 143080 285270 143080 
 # END_RING_PT_INFO_LIST 
 # gnd 1600 9 1 0 0 0 0 0 
 # RING_PT_INFO_LIST 
-# 144020 6640 144020 279520 
+# 144400 6640 144400 279520 
 # END_RING_PT_INFO_LIST 
 # gnd 1600 10 1 0 0 0 0 0 
 # RING_PT_INFO_LIST 
-# 6730 143080 281310 143080 
+# 6730 143080 282070 143080 
 # END_RING_PT_INFO_LIST 
 # END_NET_INFO_LIST 
 # END_PPCMD 4 

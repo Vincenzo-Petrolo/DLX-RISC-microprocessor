@@ -3,14 +3,14 @@ addi r1, r0, #1
 addi r2, r0, #2
 addi r3, r0, #3
 addi r4, r0, #4
-sll r1, r1, #2 ; 4
-sll r2, r2, #2 ; 8
-sll r3, r3, #2 ; 12
-sll r4, r4, #2 ; 16
-srl r1, r1, #2 ; 1
-srl r2, r2, #2 ; 2
-srl r3, r3, #2 ; 3
-srl r4, r4, #2 ; 4
+slli r1, r1, #2 ; 4
+slli r2, r2, #2 ; 8
+slli r3, r3, #2 ; 12
+slli r4, r4, #2 ; 16
+srli r1, r1, #2 ; 1
+srli r2, r2, #2 ; 2
+srli r3, r3, #2 ; 3
+srli r4, r4, #2 ; 4
 ; Same as multiplying by 2
 add r1, r1, r1
 add r2, r2, r2
