@@ -1,0 +1,207 @@
+# //  Questa Sim-64
+# //  Version 10.7c linux_x86_64 Aug 17 2018
+# //
+# //  Copyright 1991-2018 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+bash scripts/compile.bash
+# Start time: 21:38:34 on Jun 07,2022
+# vcom ../a.a-ControlUnit.core/a.a.a-cw_flags.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# ** Error: (vcom-7) Failed to open design unit file "../a.a-ControlUnit.core/a.a.a-cw_flags.vhd" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 21:38:34 on Jun 07,2022, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# Start time: 21:38:34 on Jun 07,2022
+# vcom ../a.a-ControlUnit.core/a.a.b-op_func.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# ** Error: (vcom-7) Failed to open design unit file "../a.a-ControlUnit.core/a.a.b-op_func.vhd" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 21:38:34 on Jun 07,2022, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# Start time: 21:38:34 on Jun 07,2022
+# vcom ../a.b-Datapath.core/a.b.a-aluOpCodes.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# ** Error: (vcom-7) Failed to open design unit file "../a.b-Datapath.core/a.b.a-aluOpCodes.vhd" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 21:38:35 on Jun 07,2022, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
+# Start time: 21:38:35 on Jun 07,2022
+# vcom ../a.a-HWCU.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# ** Error: (vcom-7) Failed to open design unit file "../a.a-HWCU.vhd" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 21:38:35 on Jun 07,2022, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# Start time: 21:38:35 on Jun 07,2022
+# vcom ../a.b-Datapath.core/a.b.g-p4_adder.core/a.b.g.a-constants.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# ** Error: (vcom-7) Failed to open design unit file "../a.b-Datapath.core/a.b.g-p4_adder.core/a.b.g.a-constants.vhd" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 21:38:35 on Jun 07,2022, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# Start time: 21:38:35 on Jun 07,2022
+# vcom ../a.b-Datapath.core/a.b.g-p4_adder.core/a.b.g.b-fa.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# ** Error: (vcom-7) Failed to open design unit file "../a.b-Datapath.core/a.b.g-p4_adder.core/a.b.g.b-fa.vhd" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 21:38:35 on Jun 07,2022, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# Start time: 21:38:35 on Jun 07,2022
+# vcom ../a.b-Datapath.core/a.b.g-p4_adder.core/a.b.g.c-nd2.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# ** Error: (vcom-7) Failed to open design unit file "../a.b-Datapath.core/a.b.g-p4_adder.core/a.b.g.c-nd2.vhd" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 21:38:35 on Jun 07,2022, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# Start time: 21:38:35 on Jun 07,2022
+# vcom ../a.b-Datapath.core/a.b.g-p4_adder.core/a.b.g.d-iv.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# ** Error: (vcom-7) Failed to open design unit file "../a.b-Datapath.core/a.b.g-p4_adder.core/a.b.g.d-iv.vhd" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 21:38:35 on Jun 07,2022, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# Start time: 21:38:35 on Jun 07,2022
+# vcom ../a.b-Datapath.core/a.b.g-p4_adder.core/a.b.g.e-mux21_generic.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# ** Error: (vcom-7) Failed to open design unit file "../a.b-Datapath.core/a.b.g-p4_adder.core/a.b.g.e-mux21_generic.vhd" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 21:38:35 on Jun 07,2022, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# Start time: 21:38:35 on Jun 07,2022
+# vcom ../a.b-Datapath.core/a.b.g-p4_adder.core/a.b.g.f-rca_generic.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# ** Error: (vcom-7) Failed to open design unit file "../a.b-Datapath.core/a.b.g-p4_adder.core/a.b.g.f-rca_generic.vhd" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 21:38:35 on Jun 07,2022, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# Start time: 21:38:35 on Jun 07,2022
+# vcom ../a.b-Datapath.core/a.b.g-p4_adder.core/a.b.g.g-carry_select_block_generic.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# ** Error: (vcom-7) Failed to open design unit file "../a.b-Datapath.core/a.b.g-p4_adder.core/a.b.g.g-carry_select_block_generic.vhd" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 21:38:35 on Jun 07,2022, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# Start time: 21:38:35 on Jun 07,2022
+# vcom ../a.b-Datapath.core/a.b.g-p4_adder.core/a.b.g.h-pgb.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# ** Error: (vcom-7) Failed to open design unit file "../a.b-Datapath.core/a.b.g-p4_adder.core/a.b.g.h-pgb.vhd" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 21:38:35 on Jun 07,2022, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# Start time: 21:38:35 on Jun 07,2022
+# vcom ../a.b-Datapath.core/a.b.g-p4_adder.core/a.b.g.i-PG.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# ** Error: (vcom-7) Failed to open design unit file "../a.b-Datapath.core/a.b.g-p4_adder.core/a.b.g.i-PG.vhd" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 21:38:35 on Jun 07,2022, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# Start time: 21:38:35 on Jun 07,2022
+# vcom ../a.b-Datapath.core/a.b.g-p4_adder.core/a.b.g.l-G.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# ** Error: (vcom-7) Failed to open design unit file "../a.b-Datapath.core/a.b.g-p4_adder.core/a.b.g.l-G.vhd" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 21:38:35 on Jun 07,2022, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# Start time: 21:38:35 on Jun 07,2022
+# vcom ../a.b-Datapath.core/a.b.g-p4_adder.core/a.b.g.m-sum_generator.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# ** Error: (vcom-7) Failed to open design unit file "../a.b-Datapath.core/a.b.g-p4_adder.core/a.b.g.m-sum_generator.vhd" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 21:38:36 on Jun 07,2022, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
+# Start time: 21:38:36 on Jun 07,2022
+# vcom ../a.b-Datapath.core/a.b.g-p4_adder.core/a.b.g.n-CLA.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# ** Error: (vcom-7) Failed to open design unit file "../a.b-Datapath.core/a.b.g-p4_adder.core/a.b.g.n-CLA.vhd" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 21:38:36 on Jun 07,2022, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# Start time: 21:38:36 on Jun 07,2022
+# vcom ../a.b-Datapath.core/a.b.g-p4_adder.core/a.b.g.o-adder_generic.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# ** Error: (vcom-7) Failed to open design unit file "../a.b-Datapath.core/a.b.g-p4_adder.core/a.b.g.o-adder_generic.vhd" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 21:38:36 on Jun 07,2022, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# Start time: 21:38:36 on Jun 07,2022
+# vcom ../a.b-Datapath.core/a.b.b-ALU.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# ** Error: (vcom-7) Failed to open design unit file "../a.b-Datapath.core/a.b.b-ALU.vhd" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 21:38:36 on Jun 07,2022, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# Start time: 21:38:36 on Jun 07,2022
+# vcom ../a.b-Datapath.core/a.b.c-ADDER.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# ** Error: (vcom-7) Failed to open design unit file "../a.b-Datapath.core/a.b.c-ADDER.vhd" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 21:38:36 on Jun 07,2022, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# Start time: 21:38:36 on Jun 07,2022
+# vcom ../a.b-Datapath.core/a.b.d-MUX21.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# ** Error: (vcom-7) Failed to open design unit file "../a.b-Datapath.core/a.b.d-MUX21.vhd" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 21:38:36 on Jun 07,2022, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# Start time: 21:38:36 on Jun 07,2022
+# vcom ../a.b-Datapath.core/a.b.e-REG.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# ** Error: (vcom-7) Failed to open design unit file "../a.b-Datapath.core/a.b.e-REG.vhd" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 21:38:36 on Jun 07,2022, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# Start time: 21:38:36 on Jun 07,2022
+# vcom ../a.b-Datapath.core/a.b.f-RF.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# ** Error: (vcom-7) Failed to open design unit file "../a.b-Datapath.core/a.b.f-RF.vhd" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 21:38:36 on Jun 07,2022, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# Start time: 21:38:36 on Jun 07,2022
+# vcom ../a.b-DP.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# ** Error: (vcom-7) Failed to open design unit file "../a.b-DP.vhd" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 21:38:36 on Jun 07,2022, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# Start time: 21:38:36 on Jun 07,2022
+# vcom ../a.c-DATAMEM.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# ** Error: (vcom-7) Failed to open design unit file "../a.c-DATAMEM.vhd" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 21:38:36 on Jun 07,2022, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# Start time: 21:38:36 on Jun 07,2022
+# vcom ../a.d-INSTRMEM.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# ** Error: (vcom-7) Failed to open design unit file "../a.d-INSTRMEM.vhd" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 21:38:36 on Jun 07,2022, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# Start time: 21:38:36 on Jun 07,2022
+# vcom ../a-CPU.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# ** Error: (vcom-7) Failed to open design unit file "../a-CPU.vhd" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 21:38:36 on Jun 07,2022, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# Start time: 21:38:36 on Jun 07,2022
+# vcom ../test_bench/TB_CPU.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# ** Error: (vcom-7) Failed to open design unit file "../test_bench/TB_CPU.vhd" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 21:38:36 on Jun 07,2022, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# child process exited abnormally
+òls
+# invalid command name "òls"
