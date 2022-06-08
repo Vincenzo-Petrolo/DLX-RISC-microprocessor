@@ -1,27 +1,28 @@
 Gate area 0.7980 um^2
-Level 0 Module CPU                                      Gates=     12927 Cells=    6164 Area=   10316.3 um^2
-Level 1 Module CPU_DP                                   Gates=12827      Cells=6099     Area=   10235.9 um^2
+Level 0 Module CPU                                      Gates=     12940 Cells=    6161 Area=   10326.7 um^2
+Level 1 Module CPU_DP                                   Gates=12804      Cells=6076     Area=   10217.9 um^2
 Level 2 Module CPU_DP/PC                                Gates=214        Cells=33       Area=     171.0 um^2
-Level 2 Module CPU_DP/PC_ADDER                          Gates=313        Cells=256      Area=     249.8 um^2
-Level 3 Module CPU_DP/PC_ADDER/add_16                   Gates=313        Cells=256      Area=     249.8 um^2
-Level 2 Module CPU_DP/REGFILE                           Gates=6520       Cells=3157     Area=    5203.0 um^2
-Level 2 Module CPU_DP/ALU_DP                            Gates=2001       Cells=1564     Area=    1597.3 um^2
-Level 3 Module CPU_DP/ALU_DP/r131                       Gates=307        Cells=280      Area=     245.0 um^2
-Level 3 Module CPU_DP/ALU_DP/sub_30                     Gates=313        Cells=279      Area=     250.3 um^2
-Level 3 Module CPU_DP/ALU_DP/add_28                     Gates=299        Cells=252      Area=     239.1 um^2
-Level 2 Module CPU_DP/PC_BRANCH_ADDER                   Gates=288        Cells=242      Area=     230.1 um^2
-Level 3 Module CPU_DP/PC_BRANCH_ADDER/add_16            Gates=288        Cells=242      Area=     230.1 um^2
+Level 2 Module CPU_DP/PC_ADDER                          Gates=283        Cells=237      Area=     225.8 um^2
+Level 3 Module CPU_DP/PC_ADDER/add_16                   Gates=283        Cells=237      Area=     225.8 um^2
+Level 2 Module CPU_DP/REGFILE                           Gates=6503       Cells=3155     Area=    5189.9 um^2
+Level 2 Module CPU_DP/ALU_DP                            Gates=2317       Cells=1746     Area=    1849.5 um^2
+Level 3 Module CPU_DP/ALU_DP/ADDER                      Gates=1002       Cells=786      Area=     799.6 um^2
+Level 4 Module CPU_DP/ALU_DP/ADDER/carry                Gates=205        Cells=154      Area=     164.1 um^2
+Level 4 Module CPU_DP/ALU_DP/ADDER/sum                  Gates=713        Cells=590      Area=     569.2 um^2
+Level 5 Module CPU_DP/ALU_DP/ADDER/sum/CARRYSELBLOCK_i_1 Gates=352        Cells=290      Area=     280.9 um^2
+Level 5 Module CPU_DP/ALU_DP/ADDER/sum/CARRYSELBLOCK_i_2 Gates=361        Cells=300      Area=     288.3 um^2
+Level 3 Module CPU_DP/ALU_DP/r128                       Gates=302        Cells=267      Area=     241.3 um^2
+Level 2 Module CPU_DP/PC_BRANCH_ADDER                   Gates=168        Cells=33       Area=     134.6 um^2
 Level 2 Module CPU_DP/PC_ADDER_REG_IF_ID                Gates=214        Cells=33       Area=     171.0 um^2
-Level 2 Module CPU_DP/INSTRMEM_REG_IF_ID                Gates=214        Cells=33       Area=     171.0 um^2
+Level 2 Module CPU_DP/INSTRMEM_REG_IF_ID                Gates=242        Cells=61       Area=     193.1 um^2
 Level 2 Module CPU_DP/PC_ADDER_REG_ID_EX                Gates=214        Cells=33       Area=     171.0 um^2
 Level 2 Module CPU_DP/JLABEL_REG_ID_EX                  Gates=214        Cells=33       Area=     171.0 um^2
-Level 2 Module CPU_DP/RF_DATA_OUT1_REG_ID_EX            Gates=214        Cells=33       Area=     171.0 um^2
+Level 2 Module CPU_DP/RF_DATA_OUT1_REG_ID_EX            Gates=215        Cells=35       Area=     172.1 um^2
 Level 2 Module CPU_DP/RF_DATA_OUT2_REG_ID_EX            Gates=214        Cells=33       Area=     171.0 um^2
 Level 2 Module CPU_DP/IMM_REG_ID_EX                     Gates=107        Cells=17       Area=      85.7 um^2
 Level 2 Module CPU_DP/PC_ADDER_REG_EX_MEM               Gates=214        Cells=33       Area=     171.0 um^2
-Level 2 Module CPU_DP/PC_BRANCH_ADDER_OUT_REG_EX_MEM    Gates=214        Cells=33       Area=     171.0 um^2
 Level 2 Module CPU_DP/ALU_OUT_REG_EX_MEM                Gates=214        Cells=33       Area=     171.0 um^2
 Level 2 Module CPU_DP/RF_DATA_OUT2_REG_EX_MEM           Gates=214        Cells=33       Area=     171.0 um^2
 Level 2 Module CPU_DP/PC_ADDER_REG_MEM_WB               Gates=214        Cells=33       Area=     171.0 um^2
-Level 2 Module CPU_DP/DATA_IN_REG_MEM_WB                Gates=214        Cells=33       Area=     171.0 um^2
+Level 2 Module CPU_DP/DATA_IN_REG_MEM_WB                Gates=235        Cells=54       Area=     187.5 um^2
 Level 2 Module CPU_DP/ALU_OUT_REG_MEM_WB                Gates=214        Cells=33       Area=     171.0 um^2

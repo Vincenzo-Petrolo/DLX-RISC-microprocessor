@@ -1,0 +1,55 @@
+ line   address	contents
+    1                      ; emulate a MOV
+    2  00000000  2001ff3f	addi r1, r0, #-193
+    3  00000004  54000000	nop
+    4  00000008  54000000	nop
+    5  0000000c  54000000	nop
+    6  00000010  2821ff3f	subi r1, r1, #-193
+    7                      ;Now perform some logic functions
+    8  00000014  3402aaaa	ori r2, r0, #0xAAAA ; load 101010... pattern on r2
+    9  00000018  54000000	nop
+   10  0000001c  54000000	nop
+   11  00000020  54000000	nop
+   12                      ; once again nops for data dependecy...
+   13  00000024  50420010	slli r2, r2, #16 ; move to the top side of the register
+   14  00000028  54000000	nop
+   15  0000002c  54000000	nop
+   16  00000030  54000000	nop
+   17                      ; nop for dd
+   18  00000034  3442aaaa	ori r2, r2, #0xAAAA ; load 101010... pattern on r2
+   19  00000038  54000000	nop
+   20  0000003c  54000000	nop
+   21  00000040  54000000	nop
+   22                      ;Now we have a complete mask with 1010 pattern, now complement the mask to 0101
+   23  00000044  3403ffff	ori r3, r0, #0xFFFF
+   24  00000048  54000000	nop
+   25  0000004c  54000000	nop
+   26  00000050  54000000	nop
+   27                      ; once again nops for data dependecy...
+   28  00000054  50630010	slli r3, r3, #16 ; move to the top side of the register
+   29  00000058  54000000	nop
+   30  0000005c  54000000	nop
+   31  00000060  54000000	nop
+   32                      ; nop for dd
+   33  00000064  3463ffff	ori r3, r3, #0xFFFF
+   34  00000068  54000000	nop
+   35  0000006c  54000000	nop
+   36  00000070  54000000	nop
+   37                      ; Now i have r2 filled with 1010 pattern
+   38                      ; Now i have r3 filled with 1111 pattern
+   39                      ; Let's save 0101 pattern into r4 to create another mask
+   40  00000074  00432026	xor r4 r2, r3
+   41  00000078  54000000	nop
+   42  0000007c  54000000	nop
+   43  00000080  54000000	nop
+   44                      ; Now r4 has 0101 pattern
+   45                      ; Start performing logical operations in pipeline avoiding data dependencies
+   46  00000084  30650000	andi r5, r3, #0
+   47                      ; I should obtain r5 with 16 top bits at 1, and the bottom part full of 0s
+   48  00000088  58460001	srli r6, r2, #1 ;shift r2 in order to go from 1010 -> 0101 pattern
+   51                      ; now halt the processor
+   52  0000008c          	stop:
+   53  0000008c  0bfffffc	j stop
+   54  00000090  54000000	nop
+   55  00000094  54000000	nop
+   56                      ;two nops because branch delay slot is 2

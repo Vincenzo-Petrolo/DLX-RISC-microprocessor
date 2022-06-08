@@ -1,0 +1,1247 @@
+# //  Questa Sim-64
+# //  Version 10.7c linux_x86_64 Aug 17 2018
+# //
+# //  Copyright 1991-2018 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+bash compile.bash
+# Start time: 10:49:02 on Jun 08,2022
+# vcom ../a.a-ControlUnit.core/a.a.a-cw_flags.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling package cw_flags
+# End time: 10:49:02 on Jun 08,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Start time: 10:49:02 on Jun 08,2022
+# vcom ../a.a-ControlUnit.core/a.a.b-op_func.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package op_func
+# End time: 10:49:03 on Jun 08,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Start time: 10:49:03 on Jun 08,2022
+# vcom ../a.b-Datapath.core/a.b.a-aluOpCodes.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling package aluOpCodes
+# End time: 10:49:03 on Jun 08,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Start time: 10:49:03 on Jun 08,2022
+# vcom ../a.a-HWCU.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package op_func
+# -- Loading package cw_flags
+# -- Loading package aluOpCodes
+# -- Compiling entity HWCU
+# -- Compiling architecture beh of HWCU
+# End time: 10:49:03 on Jun 08,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Start time: 10:49:03 on Jun 08,2022
+# vcom ../a.b-Datapath.core/a.b.g-p4_adder.core/a.b.g.a-constants.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# -- Loading package STANDARD
+# -- Compiling package CONSTANTS
+# End time: 10:49:03 on Jun 08,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Start time: 10:49:03 on Jun 08,2022
+# vcom ../a.b-Datapath.core/a.b.g-p4_adder.core/a.b.g.b-fa.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity FA
+# -- Compiling architecture BEHAVIORAL of FA
+# -- Compiling configuration CFG_FA_BEHAVIORAL
+# -- Loading entity FA
+# -- Loading architecture BEHAVIORAL of FA
+# End time: 10:49:03 on Jun 08,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Start time: 10:49:03 on Jun 08,2022
+# vcom ../a.b-Datapath.core/a.b.g-p4_adder.core/a.b.g.c-nd2.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package CONSTANTS
+# -- Compiling entity ND2
+# -- Compiling architecture ARCH1 of ND2
+# -- Compiling architecture ARCH2 of ND2
+# -- Loading entity ND2
+# -- Compiling configuration CFG_ND2_ARCH1
+# -- Loading entity ND2
+# -- Loading architecture ARCH1 of ND2
+# -- Compiling configuration CFG_ND2_ARCH2
+# -- Loading entity ND2
+# -- Loading architecture ARCH2 of ND2
+# End time: 10:49:03 on Jun 08,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Start time: 10:49:03 on Jun 08,2022
+# vcom ../a.b-Datapath.core/a.b.g-p4_adder.core/a.b.g.d-iv.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package CONSTANTS
+# -- Compiling entity IV
+# -- Compiling architecture BEHAVIORAL of IV
+# -- Compiling configuration CFG_IV_BEHAVIORAL
+# -- Loading entity IV
+# -- Loading architecture BEHAVIORAL of IV
+# End time: 10:49:03 on Jun 08,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Start time: 10:49:03 on Jun 08,2022
+# vcom ../a.b-Datapath.core/a.b.g-p4_adder.core/a.b.g.e-mux21_generic.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package CONSTANTS
+# -- Compiling entity MUX21_GENERIC
+# -- Compiling architecture BEH of MUX21_GENERIC
+# -- Compiling architecture STRUCT of MUX21_GENERIC
+# -- Loading entity MUX21_GENERIC
+# -- Compiling configuration CFG_MUX21_GEN_BEHAVIORAL
+# -- Loading entity MUX21_GENERIC
+# -- Loading architecture BEH of MUX21_GENERIC
+# -- Compiling configuration CFG_MUX21_GEN_STRUCTURAL
+# -- Loading entity MUX21_GENERIC
+# -- Loading architecture STRUCT of MUX21_GENERIC
+# -- Loading entity IV
+# -- Loading entity ND2
+# End time: 10:49:03 on Jun 08,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Start time: 10:49:03 on Jun 08,2022
+# vcom ../a.b-Datapath.core/a.b.g-p4_adder.core/a.b.g.f-rca_generic.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package CONSTANTS
+# -- Compiling entity RCA_GENERIC
+# -- Compiling architecture STRUCTURAL of RCA_GENERIC
+# -- Compiling architecture BEHAVIORAL of RCA_GENERIC
+# -- Loading entity RCA_GENERIC
+# -- Compiling configuration CFG_RCA_GENERIC_STRUCT
+# -- Loading entity RCA_GENERIC
+# -- Loading architecture STRUCTURAL of RCA_GENERIC
+# -- Loading entity FA
+# -- Loading configuration cfg_fa_behavioral
+# -- Compiling configuration CFG_RCA_GENERIC_BEHAVIORAL
+# -- Loading entity RCA_GENERIC
+# -- Loading architecture BEHAVIORAL of RCA_GENERIC
+# End time: 10:49:04 on Jun 08,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Start time: 10:49:04 on Jun 08,2022
+# vcom ../a.b-Datapath.core/a.b.g-p4_adder.core/a.b.g.g-carry_select_block_generic.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity CARRY_SELECT_BLOCK_GENERIC
+# -- Compiling architecture STRUCTURAL of CARRY_SELECT_BLOCK_GENERIC
+# -- Compiling configuration CONFIG_CARRY_SELECT
+# -- Loading entity CARRY_SELECT_BLOCK_GENERIC
+# -- Loading architecture STRUCTURAL of CARRY_SELECT_BLOCK_GENERIC
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package CONSTANTS
+# -- Loading entity RCA_GENERIC
+# -- Loading entity MUX21_GENERIC
+# -- Loading configuration cfg_rca_generic_struct
+# -- Loading configuration cfg_mux21_gen_behavioral
+# End time: 10:49:04 on Jun 08,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Start time: 10:49:04 on Jun 08,2022
+# vcom ../a.b-Datapath.core/a.b.g-p4_adder.core/a.b.g.h-pgb.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity pgb
+# -- Compiling architecture beh of pgb
+# -- Compiling configuration cfg_pgb_beh
+# -- Loading entity pgb
+# -- Loading architecture beh of pgb
+# End time: 10:49:04 on Jun 08,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Start time: 10:49:04 on Jun 08,2022
+# vcom ../a.b-Datapath.core/a.b.g-p4_adder.core/a.b.g.i-PG.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity PG
+# -- Compiling architecture beh of PG
+# -- Compiling configuration cfg_PG_beh
+# -- Loading entity PG
+# -- Loading architecture beh of PG
+# End time: 10:49:04 on Jun 08,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Start time: 10:49:04 on Jun 08,2022
+# vcom ../a.b-Datapath.core/a.b.g-p4_adder.core/a.b.g.l-G.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity G
+# -- Compiling architecture beh of G
+# -- Compiling configuration cfg_G_beh
+# -- Loading entity G
+# -- Loading architecture beh of G
+# End time: 10:49:04 on Jun 08,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Start time: 10:49:04 on Jun 08,2022
+# vcom ../a.b-Datapath.core/a.b.g-p4_adder.core/a.b.g.m-sum_generator.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity SUM_GENERATOR_GENERIC
+# -- Compiling architecture STRUCTURAL of SUM_GENERATOR_GENERIC
+# -- Compiling configuration CFG_SUM_GENERATOR_STRUCTURAL
+# -- Loading entity SUM_GENERATOR_GENERIC
+# -- Loading architecture STRUCTURAL of SUM_GENERATOR_GENERIC
+# -- Loading entity CARRY_SELECT_BLOCK_GENERIC
+# -- Loading configuration config_carry_select
+# End time: 10:49:04 on Jun 08,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Start time: 10:49:04 on Jun 08,2022
+# vcom ../a.b-Datapath.core/a.b.g-p4_adder.core/a.b.g.n-CLA.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity CLA
+# -- Compiling architecture structural_generic of CLA
+# End time: 10:49:04 on Jun 08,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Start time: 10:49:04 on Jun 08,2022
+# vcom ../a.b-Datapath.core/a.b.g-p4_adder.core/a.b.g.o-adder_generic.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity adder_generic
+# -- Compiling architecture add_struct of adder_generic
+# -- Compiling configuration CFG_ADDER_GENERIC_STRUCT
+# -- Loading entity adder_generic
+# -- Loading architecture add_struct of adder_generic
+# -- Loading package NUMERIC_STD
+# -- Loading entity CLA
+# -- Loading entity SUM_GENERATOR_GENERIC
+# -- Loading configuration cfg_sum_generator_structural
+# End time: 10:49:04 on Jun 08,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Start time: 10:49:04 on Jun 08,2022
+# vcom ../a.b-Datapath.core/a.b.b-ALU.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package aluOpCodes
+# -- Compiling entity ALU
+# -- Compiling architecture beh of ALU
+# End time: 10:49:04 on Jun 08,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Start time: 10:49:04 on Jun 08,2022
+# vcom ../a.b-Datapath.core/a.b.c-ADDER.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity ADDER
+# -- Compiling architecture beh of ADDER
+# End time: 10:49:05 on Jun 08,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Start time: 10:49:05 on Jun 08,2022
+# vcom ../a.b-Datapath.core/a.b.d-MUX21.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity MUX21
+# -- Compiling architecture beh of MUX21
+# End time: 10:49:05 on Jun 08,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Start time: 10:49:05 on Jun 08,2022
+# vcom ../a.b-Datapath.core/a.b.e-REG.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity REG
+# -- Compiling architecture beh of REG
+# End time: 10:49:05 on Jun 08,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Start time: 10:49:05 on Jun 08,2022
+# vcom ../a.b-Datapath.core/a.b.f-RF.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity RF
+# -- Compiling architecture beh of RF
+# End time: 10:49:05 on Jun 08,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Start time: 10:49:05 on Jun 08,2022
+# vcom ../a.b-DP.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity DP
+# -- Compiling architecture struct of DP
+# End time: 10:49:05 on Jun 08,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Start time: 10:49:05 on Jun 08,2022
+# vcom ../a.c-DATAMEM.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity DATAMEM
+# -- Compiling architecture beh of DATAMEM
+# End time: 10:49:05 on Jun 08,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Start time: 10:49:05 on Jun 08,2022
+# vcom ../a.d-INSTRMEM.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_textio
+# -- Compiling entity INSTRMEM
+# -- Compiling architecture beh of INSTRMEM
+# End time: 10:49:05 on Jun 08,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Start time: 10:49:05 on Jun 08,2022
+# vcom ../a-CPU.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity CPU
+# -- Compiling architecture struct of CPU
+# End time: 10:49:05 on Jun 08,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Start time: 10:49:05 on Jun 08,2022
+# vcom ../test_bench/TB_CPU.vhd 
+# QuestaSim-64 vcom 10.7c Compiler 2018.08 Aug 17 2018
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity TB_CPU
+# -- Compiling architecture tb_cpu_arch of TB_CPU
+# End time: 10:49:05 on Jun 08,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim work.tb_cpu -t 10ps -voptargs=+acc
+# vsim work.tb_cpu -t 10ps -voptargs="+acc" 
+# Start time: 10:49:21 on Jun 08,2022
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_cpu(tb_cpu_arch)#1
+# Loading work.cpu(struct)#1
+# Loading work.dp(struct)#1
+# Loading work.reg(beh)#1
+# Loading work.adder(beh)#1
+# Loading work.mux21(beh)#1
+# Loading work.mux21(beh)#2
+# Loading work.rf(beh)#1
+# Loading work.mux21(beh)#3
+# Loading work.aluopcodes
+# Loading work.alu(beh)#1
+# Loading work.adder_generic(add_struct)#1
+# Loading work.cla(structural_generic)#1
+# Loading work.pgb(beh)#1
+# Loading work.g(beh)#1
+# Loading work.pg(beh)#1
+# Loading work.sum_generator_generic(structural)#1
+# Loading work.carry_select_block_generic(structural)#1
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.constants
+# Loading work.rca_generic(behavioral)#1
+# Loading work.mux21_generic(struct)#1
+# Loading work.iv(behavioral)#1
+# Loading work.nd2(arch2)#1
+# Loading work.reg(beh)#2
+# Loading work.reg(beh)#3
+# Loading ieee.std_logic_textio(body)
+# Loading work.instrmem(beh)#1
+# Loading work.datamem(beh)#1
+# Loading work.op_func
+# Loading work.cw_flags
+# Loading work.hwcu(beh)#1
+add wave -position insertpoint  \
+sim:/tb_cpu/DUT/CPU_DP/CLK \
+sim:/tb_cpu/DUT/CPU_DP/RST
+add wave -position insertpoint  \
+sim:/tb_cpu/DUT/CPU_DP/DATA_IN
+add wave -position insertpoint  \
+sim:/tb_cpu/DUT/CPU_DP/DATA_OUT
+add wave -position insertpoint  \
+sim:/tb_cpu/DUT/CPU_DATAMEM/MEM
+add wave -position insertpoint  \
+sim:/tb_cpu/DUT/CPU_DATAMEM/ADDR
+add wave -position insertpoint  \
+sim:/tb_cpu/DUT/CPU_DATAMEM/DATA_IN \
+sim:/tb_cpu/DUT/CPU_DATAMEM/DATA_OUT
+add wave -position insertpoint  \
+sim:/tb_cpu/DUT/CPU_DATAMEM/RE \
+sim:/tb_cpu/DUT/CPU_DATAMEM/WE
+add wave -position insertpoint  \
+sim:/tb_cpu/DUT/CPU_CU/OPCODE
+view -new wave
+# .main_pane.wave1.interior.cs.body.pw.wf
+add wave -position insertpoint  \
+sim:/tb_cpu/DUT/CPU_DP/REGFILE/REGS
+add wave -position insertpoint  \
+sim:/tb_cpu/DUT/CPU_DP/REGFILE/REGS
+run 3us
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_CU
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_CU
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_CU
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_CU
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_INSTRMEM
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_INSTRMEM
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(8)/CARRYSELBLOCK_i/RCA1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(8)/CARRYSELBLOCK_i/RCA1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(8)/CARRYSELBLOCK_i/RCA1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(8)/CARRYSELBLOCK_i/RCA0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(8)/CARRYSELBLOCK_i/RCA0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(8)/CARRYSELBLOCK_i/RCA0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(7)/CARRYSELBLOCK_i/RCA1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(7)/CARRYSELBLOCK_i/RCA1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(7)/CARRYSELBLOCK_i/RCA1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(7)/CARRYSELBLOCK_i/RCA0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(7)/CARRYSELBLOCK_i/RCA0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(7)/CARRYSELBLOCK_i/RCA0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(6)/CARRYSELBLOCK_i/RCA1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(6)/CARRYSELBLOCK_i/RCA1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(6)/CARRYSELBLOCK_i/RCA1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(6)/CARRYSELBLOCK_i/RCA0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(6)/CARRYSELBLOCK_i/RCA0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(6)/CARRYSELBLOCK_i/RCA0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(5)/CARRYSELBLOCK_i/RCA1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(5)/CARRYSELBLOCK_i/RCA1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(5)/CARRYSELBLOCK_i/RCA1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(5)/CARRYSELBLOCK_i/RCA0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(5)/CARRYSELBLOCK_i/RCA0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(5)/CARRYSELBLOCK_i/RCA0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(4)/CARRYSELBLOCK_i/RCA1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(4)/CARRYSELBLOCK_i/RCA1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(4)/CARRYSELBLOCK_i/RCA1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(4)/CARRYSELBLOCK_i/RCA0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(4)/CARRYSELBLOCK_i/RCA0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(4)/CARRYSELBLOCK_i/RCA0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(3)/CARRYSELBLOCK_i/RCA1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(3)/CARRYSELBLOCK_i/RCA1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(3)/CARRYSELBLOCK_i/RCA1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(3)/CARRYSELBLOCK_i/RCA0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(3)/CARRYSELBLOCK_i/RCA0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(3)/CARRYSELBLOCK_i/RCA0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(2)/CARRYSELBLOCK_i/RCA1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(2)/CARRYSELBLOCK_i/RCA1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(2)/CARRYSELBLOCK_i/RCA1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(2)/CARRYSELBLOCK_i/RCA0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(2)/CARRYSELBLOCK_i/RCA0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(2)/CARRYSELBLOCK_i/RCA0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(1)/CARRYSELBLOCK_i/RCA1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(1)/CARRYSELBLOCK_i/RCA1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(1)/CARRYSELBLOCK_i/RCA1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(1)/CARRYSELBLOCK_i/RCA0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(1)/CARRYSELBLOCK_i/RCA0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(1)/CARRYSELBLOCK_i/RCA0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 0 ps  Iteration: 1  Instance: /tb_cpu/DUT/CPU_CU
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /tb_cpu/DUT/CPU_INSTRMEM
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 1  Instance: /tb_cpu/DUT/CPU_INSTRMEM
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 0 ps  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 0 ps  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(8)/CARRYSELBLOCK_i/RCA0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(8)/CARRYSELBLOCK_i/RCA0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(8)/CARRYSELBLOCK_i/RCA1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(8)/CARRYSELBLOCK_i/RCA1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(7)/CARRYSELBLOCK_i/RCA0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(7)/CARRYSELBLOCK_i/RCA0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(7)/CARRYSELBLOCK_i/RCA1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(7)/CARRYSELBLOCK_i/RCA1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(6)/CARRYSELBLOCK_i/RCA0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(6)/CARRYSELBLOCK_i/RCA0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(6)/CARRYSELBLOCK_i/RCA1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(6)/CARRYSELBLOCK_i/RCA1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(5)/CARRYSELBLOCK_i/RCA0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(5)/CARRYSELBLOCK_i/RCA0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(5)/CARRYSELBLOCK_i/RCA1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(5)/CARRYSELBLOCK_i/RCA1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(4)/CARRYSELBLOCK_i/RCA0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(4)/CARRYSELBLOCK_i/RCA0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(4)/CARRYSELBLOCK_i/RCA1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(4)/CARRYSELBLOCK_i/RCA1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(3)/CARRYSELBLOCK_i/RCA0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(3)/CARRYSELBLOCK_i/RCA0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(3)/CARRYSELBLOCK_i/RCA1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(3)/CARRYSELBLOCK_i/RCA1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(2)/CARRYSELBLOCK_i/RCA0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(2)/CARRYSELBLOCK_i/RCA0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(2)/CARRYSELBLOCK_i/RCA1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(2)/CARRYSELBLOCK_i/RCA1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(1)/CARRYSELBLOCK_i/RCA0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(1)/CARRYSELBLOCK_i/RCA0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(1)/CARRYSELBLOCK_i/RCA1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /tb_cpu/DUT/CPU_DP/ALU_DP/ADDER/sum/BLOCKS(1)/CARRYSELBLOCK_i/RCA1
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 20 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 8
+#    Time: 20 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 8
+#    Time: 20 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 8
+#    Time: 40 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 8
+#    Time: 60 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 60 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 60 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 80 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 80 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 80 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 100 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 120 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 140 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 140 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 140 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 160 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 160 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 160 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 180 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 200 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 220 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 4
+#    Time: 220 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 4
+#    Time: 220 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 4
+#    Time: 240 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 240 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 240 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 260 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 300 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 300 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 320 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 8
+#    Time: 320 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 8
+#    Time: 320 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 8
+#    Time: 340 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 340 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 340 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 360 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 360 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 360 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 380 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 400 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 400 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 400 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 420 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 420 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 420 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 440 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 460 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 480 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 4
+#    Time: 480 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 4
+#    Time: 480 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 4
+#    Time: 500 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 500 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 500 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 520 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 560 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 560 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 580 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 8
+#    Time: 580 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 8
+#    Time: 580 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 8
+#    Time: 600 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 600 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 600 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 620 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 620 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 620 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 640 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 660 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 660 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 660 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 680 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 680 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 680 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 700 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 720 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 740 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 4
+#    Time: 740 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 4
+#    Time: 740 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 4
+#    Time: 760 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 760 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 760 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 780 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 820 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 820 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 840 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 8
+#    Time: 840 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 8
+#    Time: 840 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 8
+#    Time: 860 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 860 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 860 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 880 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 880 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 880 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 900 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 920 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 920 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 920 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 940 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 940 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 940 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 960 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 980 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1 us  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 4
+#    Time: 1 us  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 4
+#    Time: 1 us  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 4
+#    Time: 1020 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1020 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1020 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1040 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 1080 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 1080 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 1100 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 8
+#    Time: 1100 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 8
+#    Time: 1100 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 8
+#    Time: 1120 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 1120 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 1120 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 1140 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1140 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1140 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1160 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1180 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 1180 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 1180 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 1200 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1200 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1200 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1220 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1240 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1260 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 4
+#    Time: 1260 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 4
+#    Time: 1260 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 4
+#    Time: 1280 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1280 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1280 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1300 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 1340 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 1340 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 1360 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 8
+#    Time: 1360 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 8
+#    Time: 1360 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 8
+#    Time: 1380 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 1380 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 1380 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 1400 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1400 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1400 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1420 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1440 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 1440 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 1440 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 1460 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1460 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1460 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1480 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1500 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1520 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 4
+#    Time: 1520 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 4
+#    Time: 1520 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 4
+#    Time: 1540 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1540 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1540 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1560 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 1600 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 1600 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 1620 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 8
+#    Time: 1620 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 8
+#    Time: 1620 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 8
+#    Time: 1640 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 1640 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 1640 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 1660 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1660 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1660 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1680 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1700 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 1700 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 1700 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 1720 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1720 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1720 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1740 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1760 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1780 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 4
+#    Time: 1780 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 4
+#    Time: 1780 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 4
+#    Time: 1800 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1800 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1800 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1820 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 1860 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 1860 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 1880 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 8
+#    Time: 1880 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 8
+#    Time: 1880 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 8
+#    Time: 1900 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 1900 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 1900 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 1920 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1920 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1920 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1940 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1960 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 1960 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 1960 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 1980 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1980 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 1980 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2 us  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2020 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2040 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 4
+#    Time: 2040 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 4
+#    Time: 2040 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 4
+#    Time: 2060 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2060 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2060 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2080 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 2120 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 2120 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 2140 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 8
+#    Time: 2140 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 8
+#    Time: 2140 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 8
+#    Time: 2160 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 2160 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 2160 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 2180 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2180 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2180 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2200 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2220 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 2220 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 2220 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 2240 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2240 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2240 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2260 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2280 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2300 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 4
+#    Time: 2300 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 4
+#    Time: 2300 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 4
+#    Time: 2320 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2320 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2320 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2340 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 2360 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 2360 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 0
+#    Time: 2380 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2380 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2380 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2400 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2420 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2440 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 43
+#    Time: 2440 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 43
+#    Time: 2440 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 43
+#    Time: 2460 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 35
+#    Time: 2460 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 35
+#    Time: 2460 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 35
+#    Time: 2480 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 2480 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 2480 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 2500 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2500 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2500 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2520 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2540 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 2540 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 2540 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 2560 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2560 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2560 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2580 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 2600 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 2600 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 2620 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2620 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2620 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2640 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 2660 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 2660 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 2680 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2680 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2680 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2700 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 2720 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 2720 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 2740 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2740 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2740 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2760 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 2780 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 2780 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 2800 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2800 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2800 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2820 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 2840 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 2840 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 2860 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2860 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2860 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2880 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 2900 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 2900 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 2920 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2920 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2920 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2940 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 2960 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 2960 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 2
+#    Time: 2980 ns  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2980 ns  Iteration: 3  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 2980 ns  Iteration: 4  Instance: /tb_cpu/DUT/CPU_CU
+# ** Note: VALUE FOR CONVERTED OPCODE IS 21
+#    Time: 3 us  Iteration: 2  Instance: /tb_cpu/DUT/CPU_CU
+# Causality operation skipped due to absence of debug database file

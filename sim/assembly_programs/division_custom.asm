@@ -21,6 +21,11 @@ divide:
 	nop
 finish:
 add r4, r0, r1
+nop
+nop
+nop
+sw 0(r0), r4
+lw r5, 0(r0)
 stop: 
 j stop
 nop
