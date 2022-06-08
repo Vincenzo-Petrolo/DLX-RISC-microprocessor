@@ -1,0 +1,4 @@
+Steps to follow for performing the synthesis:
+1) Open the terminal
+2) setsynopsis
+3) dc_shell-xg-t -f scripts/synthetis.tcl

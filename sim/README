@@ -1,0 +1,12 @@
+Steps for the simulation:
+1) bash ./scripts/assembler.sh ./assembly_programs/<program>.asm
+2) cp ./assembly_programs/<program>_dump.txt ./scripts/test.asm.mem
+3) cd scripts
+4) setmentor
+5) vsim &
+6) bash compile.bash
+7) Set the parameters, resolution 10ps, apply full visibility and choose tb_cpu design
+8) After design is loaded, add waves (Useful waves are tipically CLK,RST,CU/OPCODE, DP/RF/REGS, DATAMEM/MEM)
+8) run simulation (for long programs such as division it is better to go straight to run 2us)
+
+While design is loaded, to run other programs move in the main directory for simulation: DLX-Risc-uProcessor/sim and perform steps 1 and 2 and run "restart -f" in questasim, then perform step 8.
