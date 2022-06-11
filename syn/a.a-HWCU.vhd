@@ -398,11 +398,8 @@ begin
 
     alucontrol : process (OPCODE, FUNC)
     begin
-        --See excel file for explanation on this approach, discuss together
         case to_integer(unsigned(OPCODE)) is
             when 16#00# => --RTYPE
-                -- r type operations, directly forward the func
-                --taking the last 5 bits
                 case to_integer(unsigned(FUNC)) is
                     when 16#04# =>
                         -- SLL
