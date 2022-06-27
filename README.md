@@ -34,19 +34,17 @@ Authors:
 - Word : 32 bits
 - It contains the firmware that is loaded into the microprocessor. 
 - Asynchronous memory.
-![](images/Aspose.Words.d7010438-ceac-4eee-a29b-0d19d26c434b.013.png)
-
 ## Data memory
 - Size : 2 kB
 - Word size: 32 bits
 - It stores data coming from registers. 
 - Asynchronous memory.
-![](images/Aspose.Words.d7010438-ceac-4eee-a29b-0d19d26c434b.014.png)
 ## Control Unit
 - LUT size : 62 lines
 - Control Word: 9 bits
 - Hardwired implementation 
 - Modular control word generation  through **std\_logic\_vector** concatenation to improve  readability during debugging  phase.
+
 ![](images/Aspose.Words.d7010438-ceac-4eee-a29b-0d19d26c434b.015.png)
 
 ## Simulation – I-type tests
