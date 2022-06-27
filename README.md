@@ -1,4 +1,4 @@
-﻿# DLX RISC uProcessor
+# DLX RISC uProcessor
 
 Authors: 
  - Alfredo Paolino
