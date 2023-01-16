@@ -46,19 +46,37 @@ begin
             P4_Cin_i <= '1'; -- Set carry in to 1 to trigger subtraction
             RES_i <= P4_S_i; -- Map the result only when if condition is true
         elsif (ALU_OP = ALU_SLE) then
-            if (OP1 <= OP2) then --maybe this notation doesnt work
+            if (signed(OP1) <= signed(OP2)) then --maybe this notation doesnt work
                 RES_i   <= std_logic_vector(to_unsigned(1, RES_i'length));
             else
                 RES_i <= std_logic_vector(to_unsigned(0, RES_i'length));
             end if;
         elsif (ALU_OP = ALU_SGE) then
-            if (OP1 >= OP2) then
+            if (signed(OP1) >= signed(OP2)) then
                 RES_i <= std_logic_vector(to_unsigned(1, RES_i'length));
             else
                 RES_i <= std_logic_vector(to_unsigned(0, RES_i'length));
             end if;
         elsif (ALU_OP = ALU_SNE) then
             if (OP1 /= OP2) then
+                RES_i <= std_logic_vector(to_unsigned(1, RES_i'length));
+            else
+                RES_i <= std_logic_vector(to_unsigned(0, RES_i'length));
+            end if;
+        elsif (ALU_OP = ALU_SEQ) then
+            if (OP1 = OP2) then
+                RES_i <= std_logic_vector(to_unsigned(1, RES_i'length));
+            else
+                RES_i <= std_logic_vector(to_unsigned(0, RES_i'length));
+            end if;
+        elsif (ALU_OP = ALU_SLT) then
+            if (signed(OP1) < signed(OP2)) then
+                RES_i <= std_logic_vector(to_unsigned(1, RES_i'length));
+            else
+                RES_i <= std_logic_vector(to_unsigned(0, RES_i'length));
+            end if;
+        elsif (ALU_OP = ALU_SGT) then
+            if (signed(OP1) > signed(OP2)) then
                 RES_i <= std_logic_vector(to_unsigned(1, RES_i'length));
             else
                 RES_i <= std_logic_vector(to_unsigned(0, RES_i'length));

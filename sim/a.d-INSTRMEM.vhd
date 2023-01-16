@@ -13,7 +13,7 @@ end INSTRMEM;
 
 architecture beh of INSTRMEM is
 
-  type RAMtype is array (0 to 63) of std_logic_vector(31 downto 0);
+  type RAMtype is array (0 to 127) of std_logic_vector(31 downto 0);
 
   signal IRAM_mem : RAMtype;
   signal address  : std_logic_vector(31 downto 0);

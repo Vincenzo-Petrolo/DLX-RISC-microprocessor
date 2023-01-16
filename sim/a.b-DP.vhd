@@ -15,6 +15,7 @@ entity DP is
         ALUOpcode : in std_logic_vector(3 downto 0);
         MemToReg  : in std_logic;
         Jump      : in std_logic;
+        JumpR     : in std_logic;
         Branch    : in std_logic;
         Jal       : in std_logic;
 
@@ -30,6 +31,7 @@ architecture struct of DP is
 
     component RF is
         port (
+            CLK       : in std_logic;
             RST       : in std_logic;
             WE        : in std_logic;
             ADDR_RD1  : in std_logic_vector(4 downto 0);
@@ -38,6 +40,16 @@ architecture struct of DP is
             DATA_IN   : in std_logic_vector(31 downto 0);
             DATA_OUT1 : out std_logic_vector(31 downto 0);
             DATA_OUT2 : out std_logic_vector(31 downto 0)
+        );
+    end component;
+
+    component COMPARATOR is
+        generic (
+            NBIT : natural := 32
+        );
+        port (
+            A, B : in std_logic_vector(NBIT-1 downto 0);
+            C    : out std_logic
         );
     end component;
 
@@ -51,6 +63,7 @@ architecture struct of DP is
             O        : out std_logic_vector(BITS - 1 downto 0)
         );
     end component;
+
     component REGEN is
         generic (
             BITS : integer := 32
@@ -96,6 +109,7 @@ architecture struct of DP is
     signal JLABEL_i  : std_logic_vector (31 downto 0);
 
     signal PC_IN_i, PC_OUT_i, PC_ADDER_OUT_i : std_logic_vector(31 downto 0);
+    signal PC_JR_i                           : std_logic_vector(31 downto 0);
     signal ADDR_WR_MUX_OUT_i                 : std_logic_vector(4 downto 0);
     signal JAL_R31_ADDR_MUX_OUT_i            : std_logic_vector(4 downto 0);
     signal DATA_OUT1_i, DATA_OUT2_i          : std_logic_vector(31 downto 0);
@@ -134,6 +148,9 @@ architecture struct of DP is
     signal SE_SEL_i                         : std_logic;
     signal EXTENDED_IMM_i                   : std_logic_vector(31 downto 0);
     signal SE_OUT_MUX_i                     : std_logic_vector(31 downto 0);
+    signal RD1_COMP_OUT_i, RD2_COMP_OUT_i   : std_logic;
+    signal FORWARD1_EN_i, FORWARD2_EN_i     : std_logic;
+    signal DATA_OUT1_RF_i, DATA_OUT2_RF_i   : std_logic_vector(31 downto 0);
 begin
 
     ADDR_R1_i                    <= INSTRMEM_REG_IF_ID_i(25 downto 21);
@@ -149,23 +166,30 @@ begin
     DATA_OUT                     <= RF_DATA_OUT2_REG_EX_MEM_i;
     PcMuxSel                     <= Jump or (Branch and ZERO_i);
     SE_SEL_i                     <= ALUOpcode(3) nor ALUOpcode(2);
-    --CLK_n                        <= not CLK;
+    FORWARD1_EN_i                <= RD1_COMP_OUT_i and RegWrite;
+    FORWARD2_EN_i                <= RD2_COMP_OUT_i and RegWrite;
     --map instruction from IF/ID stage to the output
     INSTRUCTION_IF_ID_OUT <= INSTRMEM_REG_IF_ID_i;
 
-    PC              : REG generic map(32) port map(CLK, RST, PC_IN_i, PC_OUT_i);
+    PC              : REG generic map(32) port map(CLK, RST, PC_JR_i, PC_OUT_i);
     PC_ADDER        : ADDER port map(PC_OUT_i, x"00000004", PC_ADDER_OUT_i);
     ADDR_WR_MUX     : MUX21 generic map(5) port map(ADDR_R2_i, ADDR_R3_i, RegDst, ADDR_WR_MUX_OUT_i);
     JAL_MUX         : MUX21 generic map(32) port map(MEM_MUX_OUT_i, PC_ADDER_REG_MEM_WB_i, Jal, JAL_MUX_OUT_i);
     JAL_R31_ADDR    : MUX21 generic map(5) port map(ADDR_WR_MUX_OUT_REG_MEM_WB_i, "11111", Jal, JAL_R31_ADDR_MUX_OUT_i);
-    REGFILE         : RF port map(RST, RegWrite, ADDR_R1_i, ADDR_R2_i, JAL_R31_ADDR_MUX_OUT_i, JAL_MUX_OUT_i, DATA_OUT1_i, DATA_OUT2_i);
+    REGFILE         : RF port map(CLK, RST, RegWrite, ADDR_R1_i, ADDR_R2_i, JAL_R31_ADDR_MUX_OUT_i, JAL_MUX_OUT_i, DATA_OUT1_RF_i, DATA_OUT2_RF_i);
     ALU_MUX         : MUX21 port map(RF_DATA_OUT2_REG_ID_EX_i, SE_OUT_MUX_i, ALUSrc, ALU_MUX_OUT_i);
     ALU_DP          : ALU port map(RF_DATA_OUT1_REG_ID_EX_i, ALU_MUX_OUT_i, ALUOpcode, ALU_OUT_i, ZERO_i);
     JUMP_MUX        : MUX21 generic map(32) port map(JLABEL_REG_ID_EX_i, SE_IMM_i, PcMuxSel, PC_OFFSET_i);
     PC_BRANCH_ADDER : ADDER port map(PC_ADDER_REG_ID_EX_i, PC_OFFSET_i, PC_BRANCH_ADDER_OUT_i);
     PC_MUX          : MUX21 port map(PC_ADDER_OUT_i, PC_BRANCH_ADDER_OUT_i, PcMuxSel, PC_IN_i);
+    JR_MUX          : MUX21 port map(PC_IN_i, RF_DATA_OUT1_REG_ID_EX_i, JumpR, PC_JR_i);
     MEM_MUX         : MUX21 port map(ALU_OUT_REG_MEM_WB_i, DATA_IN_REG_MEM_WB_i, MemToReg, MEM_MUX_OUT_i);
     SE_MUX          : MUX21 port map(EXTENDED_IMM_i, SE_IMM_i, SE_SEL_i, SE_OUT_MUX_i);
+    RD1_COMP        : COMPARATOR generic map(5) port map(ADDR_R1_i, JAL_R31_ADDR_MUX_OUT_i, RD1_COMP_OUT_i);
+    RD2_COMP        : COMPARATOR generic map(5) port map(ADDR_R2_i, JAL_R31_ADDR_MUX_OUT_i, RD2_COMP_OUT_i);
+
+    FORWARD_RD1_MUX : MUX21 generic map(32) port map(DATA_OUT1_RF_i, JAL_MUX_OUT_i, FORWARD1_EN_i, DATA_OUT1_i);
+    FORWARD_RD2_MUX : MUX21 generic map(32) port map(DATA_OUT2_RF_i, JAL_MUX_OUT_i, FORWARD2_EN_i, DATA_OUT2_i);
 
     -- Pipeline REGS
     --PC_SRC_EX_MEM      : REG generic map(1) port map(CLK, RST, PcMuxSel, PC_MUX_SEL_i);

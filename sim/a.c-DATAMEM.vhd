@@ -26,10 +26,10 @@ begin
 
         if (RST = '0') then
             if (RE = '1') then
-                DATA_OUT <= MEM(to_integer(unsigned(ADDR)));
+                DATA_OUT <= MEM(to_integer(unsigned(ADDR))/4);
             end if;
             if (WE = '1') then
-                MEM(to_integer(unsigned(ADDR))) <= DATA_IN;
+                MEM(to_integer(unsigned(ADDR))/4) <= DATA_IN;
             end if;
         elsif (RST = '1') then
             MEM <= (others => (others => '0'));

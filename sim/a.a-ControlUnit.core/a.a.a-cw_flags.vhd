@@ -24,17 +24,20 @@ package cw_flags is
     -- End of ID stage
 
     -- EX mem stage has control word size of 3
-    constant CW_EX_LEN : integer := 3;
+    constant CW_EX_LEN : integer := 4;
 
     -- Enable if branch instruction to execute
-    constant BRANCH_0 : std_logic_vector(CW_EX_LEN - 1 downto 0) := "000";
-    constant BRANCH_1 : std_logic_vector(CW_EX_LEN - 1 downto 0) := "100";
+    constant BRANCH_0 : std_logic_vector(CW_EX_LEN - 1 downto 0) := "0000";
+    constant BRANCH_1 : std_logic_vector(CW_EX_LEN - 1 downto 0) := "0100";
     -- Enable if jump instruction to execute
-    constant JUMP_0 : std_logic_vector(CW_EX_LEN - 1 downto 0) := "000";
-    constant JUMP_1 : std_logic_vector(CW_EX_LEN - 1 downto 0) := "010";
+    constant JUMP_0 : std_logic_vector(CW_EX_LEN - 1 downto 0) := "0000";
+    constant JUMP_1 : std_logic_vector(CW_EX_LEN - 1 downto 0) := "0010";
+    -- Enable if jumpR instruction to execute
+    constant JUMPR_0 : std_logic_vector(CW_EX_LEN - 1 downto 0) := "0000";
+    constant JUMPR_1 : std_logic_vector(CW_EX_LEN - 1 downto 0) := "1000";
     -- Select the source for the second input of the ALU
-    constant SEL_ALUSRC_0 : std_logic_vector(CW_EX_LEN - 1 downto 0) := "000";
-    constant SEL_ALUSRC_1 : std_logic_vector(CW_EX_LEN - 1 downto 0) := "001";
+    constant SEL_ALUSRC_0 : std_logic_vector(CW_EX_LEN - 1 downto 0) := "0000";
+    constant SEL_ALUSRC_1 : std_logic_vector(CW_EX_LEN - 1 downto 0) := "0001";
     -- End of EX stage
 
     -- MEM stage has control word size of 1

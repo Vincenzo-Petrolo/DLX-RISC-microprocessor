@@ -36,7 +36,10 @@ package op_func is
     constant FUNC_AND : std_logic_vector(FUNC_SIZE - 1 downto 0) := std_logic_vector(to_unsigned(16#24#,FUNC_SIZE));
     constant FUNC_OR  : std_logic_vector(FUNC_SIZE - 1 downto 0) := std_logic_vector(to_unsigned(16#25#,FUNC_SIZE));
     constant FUNC_XOR : std_logic_vector(FUNC_SIZE - 1 downto 0) := std_logic_vector(to_unsigned(16#26#,FUNC_SIZE));
+    constant FUNC_SEQ : std_logic_vector(FUNC_SIZE - 1 downto 0) := std_logic_vector(to_unsigned(16#28#,FUNC_SIZE));
     constant FUNC_SNE : std_logic_vector(FUNC_SIZE - 1 downto 0) := std_logic_vector(to_unsigned(16#29#,FUNC_SIZE));
+    constant FUNC_SLT : std_logic_vector(FUNC_SIZE - 1 downto 0) := std_logic_vector(to_unsigned(16#2A#,FUNC_SIZE));
+    constant FUNC_SGT : std_logic_vector(FUNC_SIZE - 1 downto 0) := std_logic_vector(to_unsigned(16#2B#,FUNC_SIZE));
     constant FUNC_SLE : std_logic_vector(FUNC_SIZE - 1 downto 0) := std_logic_vector(to_unsigned(16#2C#,FUNC_SIZE));
     constant FUNC_SGE : std_logic_vector(FUNC_SIZE - 1 downto 0) := std_logic_vector(to_unsigned(16#2D#,FUNC_SIZE));
 end op_func;

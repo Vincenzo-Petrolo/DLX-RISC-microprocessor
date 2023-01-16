@@ -16,6 +16,9 @@ package aluOpCodes is
     constant ALU_SLL : std_logic_vector(ALU_OPCODE_LEN - 1 downto 0) := "0111";
     constant ALU_SRL : std_logic_vector(ALU_OPCODE_LEN - 1 downto 0) := "1000";
     constant ALU_SNE : std_logic_vector(ALU_OPCODE_LEN - 1 downto 0) := "1001";
+    constant ALU_SEQ : std_logic_vector(ALU_OPCODE_LEN - 1 downto 0) := "1001";
+    constant ALU_SLT : std_logic_vector(ALU_OPCODE_LEN - 1 downto 0) := "1010";
+    constant ALU_SGT : std_logic_vector(ALU_OPCODE_LEN - 1 downto 0) := "1011";
 
     constant ALU_BEQZ : std_logic_vector(ALU_OPCODE_LEN - 1 downto 0) := "1010";
     constant ALU_BNEZ : std_logic_vector(ALU_OPCODE_LEN - 1 downto 0) := "1011";
